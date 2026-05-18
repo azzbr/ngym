@@ -4,6 +4,8 @@ import "./globals.css";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import WhatsAppButton from "@/components/ui/WhatsAppButton";
+import LenisProvider from "@/components/providers/LenisProvider";
+import CustomCursor from "@/components/ui/CustomCursor";
 
 const montserrat = Montserrat({
   subsets: ["latin"],
@@ -55,10 +57,13 @@ export default function RootLayout({
       className={`${montserrat.variable} ${inter.variable} ${bebasNeue.variable}`}
     >
       <body>
-        <Navbar />
-        <main>{children}</main>
-        <Footer />
-        <WhatsAppButton />
+        <LenisProvider>
+          <CustomCursor />
+          <Navbar />
+          <main>{children}</main>
+          <Footer />
+          <WhatsAppButton />
+        </LenisProvider>
       </body>
     </html>
   );

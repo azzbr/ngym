@@ -22,6 +22,22 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+/* Hide default cursor on desktop — custom cursor takes over */
+@media (hover: hover) {
+  *, *::before, *::after {
+    cursor: none !important;
+  }
+}
+
+/* Swiper custom arrow colors */
+.swiper-button-next,
+.swiper-button-prev {
+  color: #CC1A1A !important;
+}
+.swiper-pagination-bullet-active {
+  background: #CC1A1A !important;
+}
+
 .track-divider {
   border-top: 3px solid currentColor;
   position: relative;
