@@ -1,0 +1,55 @@
+{
+  "id": "branch-alliwan",
+  "slug": "al-liwan",
+  "name": "Al Nakheel Premium — Al Liwan",
+  "shortName": "Al Liwan",
+  "locationLabel": "Al Liwan, Hamala",
+  "tagline": "Where Bahrain's Elite Train",
+  "heroImage": "/images/branches/al-liwan/hero.jpg",
+  "contact": {
+    "phone": "+97338833663",
+    "whatsapp": "+97338833663",
+    "instagram": "https://instagram.com/alnakheelpremium_alliwan",
+    "instagramHandle": "@alnakheelpremium_alliwan",
+    "address": "Al Liwan, Hamala, Kingdom of Bahrain"
+  },
+  "googleMapsEmbedUrl": "",
+  "timings": [
+    {
+      "section": "mix",
+      "label": "Mixed Floor",
+      "days": [
+        { "day": "Sat – Thu", "open": "05:00", "close": "23:00" },
+        { "day": "Friday",    "open": "08:00", "close": "20:00" }
+      ]
+    },
+    {
+      "section": "ladies",
+      "label": "Ladies Floor",
+      "days": [
+        { "day": "Sat – Thu", "open": "06:00", "close": "22:00" },
+        { "day": "Friday",    "open": "08:00", "close": "20:00" }
+      ]
+    }
+  ],
+  "memberships": [
+    { "tier": "Monthly",        "priceFrom": 70,  "currency": "BHD", "duration": "1 month",   "highlighted": false },
+    { "tier": "3 Months",       "priceFrom": 190, "currency": "BHD", "duration": "3 months",  "highlighted": false },
+    { "tier": "6 Months",       "priceFrom": 290, "currency": "BHD", "duration": "6 months",  "highlighted": true  },
+    { "tier": "Annual",         "priceFrom": 420, "currency": "BHD", "duration": "12 months", "highlighted": false },
+    { "tier": "Couples Annual", "priceFrom": 737, "currency": "BHD", "duration": "12 months", "highlighted": false, "note": "For two members" }
+  ],
+  "amenities": [
+    { "icon": "Dumbbell",        "label": "Free Weights Zone" },
+    { "icon": "Activity",        "label": "Cardio Area" },
+    { "icon": "Users",           "label": "Group Classes" },
+    { "icon": "UserCheck",       "label": "Ladies-Only Floor" },
+    { "icon": "User",            "label": "Personal Trainers" },
+    { "icon": "Eye",             "label": "Premium Views" },
+    { "icon": "ParkingSquare",   "label": "Free Parking" },
+    { "icon": "Wifi",            "label": "High-Speed WiFi" }
+  ],
+  "gallery": [],
+  "isNew": false,
+  "comingSoon": false
+}
