@@ -4,13 +4,17 @@
 
 ## 1. Project Overview
 
-**Al Nakheel Premium** is a multi-branch premium gym network. This website serves as the central digital hub — "one fit for all" — unifying all branch locations under a single, cohesive brand experience. Visitors should be able to discover the brand, explore any branch's unique details (timings, pricing, gallery, location), and take action (inquiry, visit, membership sign-up).
+**Al Nakheel Premium** is Bahrain's leading premium fitness center — self-described as "the fitness centre of the elite." The brand operates multiple branches across Bahrain, each a large-scale, fully equipped premium facility. This website serves as the central digital hub — "one fit for all" — unifying all branch locations under a single, cohesive brand experience. Visitors should be able to discover the brand, explore any branch's unique details (timings, pricing, gallery, location), and take action (inquiry, visit, membership sign-up).
+
+**Hero Copy (use verbatim on the website):**
+> "Bahrain's Leading Premium Fitness Center for the Elite of Bahrain. All the equipment, trainers, classes, and facilities to help you meet your goals."
 
 **Primary Goals:**
 - Project a premium, high-trust brand identity across every page and interaction
 - Present all branches with branch-specific data in a consistent, scalable layout
 - Drive foot traffic and membership inquiries through clear CTAs
 - Be fully SEO-optimized and performant on mobile and desktop
+- Rank for local Bahrain fitness search terms (e.g., "best gym in Bahrain", "premium gym Bahrain Bay")
 
 ---
 
@@ -165,93 +169,214 @@ All components are written in React and styled with Tailwind. Components are org
 
 ### Branch Schema (Sanity or JSON)
 
+The schema supports a `timings` array with an optional `section` field to handle branches that have separate mix/ladies floors with different hours (e.g., Al Liwan).
+
+---
+
+#### Branch 1 — Al Liwan, Hamala (LIVE DATA)
+
 ```json
 {
-  "id": "branch-riyadh-north",
-  "slug": "riyadh-north",
-  "name": "Al Nakheel Premium — Riyadh North",
-  "shortName": "Riyadh North",
-  "city": "Riyadh",
-  "tagline": "Elite Training in the Heart of the North",
-  "heroImage": "/images/branches/riyadh-north/hero.jpg",
+  "id": "branch-alliwan",
+  "slug": "al-liwan",
+  "name": "Al Nakheel Premium — Al Liwan",
+  "shortName": "Al Liwan",
+  "location": "Al Liwan, Hamala, Bahrain",
+  "tagline": "Where Bahrain's Elite Train",
+  "heroImage": "/images/branches/al-liwan/hero.jpg",
   "contact": {
-    "phone": "+966-XX-XXXXXXX",
-    "whatsapp": "+966XXXXXXXXX",
-    "email": "riyadhnorth@alnakheel.com",
-    "address": "Building 12, King Fahd Road, North Riyadh, Saudi Arabia"
+    "phone": "+97338833663",
+    "whatsapp": "+97338833663",
+    "instagram": "https://instagram.com/alnakheelpremium_alliwan",
+    "instagramHandle": "@alnakheelpremium_alliwan",
+    "address": "Al Liwan, Hamala, Kingdom of Bahrain"
   },
   "location": {
-    "lat": 24.7136,
-    "lng": 46.6753,
-    "googleMapsEmbedUrl": "https://www.google.com/maps/embed?pb=..."
+    "lat": null,
+    "lng": null,
+    "googleMapsEmbedUrl": "PENDING"
   },
   "timings": [
-    { "day": "Sunday",    "open": "06:00", "close": "23:00", "isHoliday": false },
-    { "day": "Monday",    "open": "06:00", "close": "23:00", "isHoliday": false },
-    { "day": "Tuesday",   "open": "06:00", "close": "23:00", "isHoliday": false },
-    { "day": "Wednesday", "open": "06:00", "close": "23:00", "isHoliday": false },
-    { "day": "Thursday",  "open": "06:00", "close": "00:00", "isHoliday": false },
-    { "day": "Friday",    "open": "14:00", "close": "00:00", "isHoliday": false },
-    { "day": "Saturday",  "open": "08:00", "close": "23:00", "isHoliday": false }
-  ],
-  "memberships": [
     {
-      "tier": "Basic",
-      "price": 199,
-      "currency": "SAR",
-      "duration": "monthly",
-      "features": [
-        "Gym floor access",
-        "Locker room",
-        "2 group classes/month"
+      "section": "mix",
+      "label": "Mixed Floor",
+      "days": [
+        { "day": "Saturday",  "open": "05:00", "close": "23:00" },
+        { "day": "Sunday",    "open": "05:00", "close": "23:00" },
+        { "day": "Monday",    "open": "05:00", "close": "23:00" },
+        { "day": "Tuesday",   "open": "05:00", "close": "23:00" },
+        { "day": "Wednesday", "open": "05:00", "close": "23:00" },
+        { "day": "Thursday",  "open": "05:00", "close": "23:00" },
+        { "day": "Friday",    "open": "08:00", "close": "20:00" }
       ]
     },
     {
-      "tier": "Premium",
-      "price": 349,
-      "currency": "SAR",
-      "duration": "monthly",
-      "features": [
-        "All Basic features",
-        "Unlimited group classes",
-        "Personal trainer session (1x/month)",
-        "Sauna access"
-      ],
-      "highlighted": true
-    },
-    {
-      "tier": "VIP",
-      "price": 599,
-      "currency": "SAR",
-      "duration": "monthly",
-      "features": [
-        "All Premium features",
-        "Dedicated locker",
-        "4 PT sessions/month",
-        "Guest passes (2x/month)",
-        "Priority booking"
+      "section": "ladies",
+      "label": "Ladies Floor",
+      "days": [
+        { "day": "Saturday",  "open": "06:00", "close": "22:00" },
+        { "day": "Sunday",    "open": "06:00", "close": "22:00" },
+        { "day": "Monday",    "open": "06:00", "close": "22:00" },
+        { "day": "Tuesday",   "open": "06:00", "close": "22:00" },
+        { "day": "Wednesday", "open": "06:00", "close": "22:00" },
+        { "day": "Thursday",  "open": "06:00", "close": "22:00" },
+        { "day": "Friday",    "open": "08:00", "close": "20:00" }
       ]
     }
   ],
+  "memberships": [
+    {
+      "tier": "Monthly",
+      "priceFrom": 70,
+      "currency": "BHD",
+      "duration": "1 month",
+      "highlighted": false
+    },
+    {
+      "tier": "3 Months",
+      "priceFrom": 190,
+      "currency": "BHD",
+      "duration": "3 months",
+      "highlighted": false
+    },
+    {
+      "tier": "6 Months",
+      "priceFrom": 290,
+      "currency": "BHD",
+      "duration": "6 months",
+      "highlighted": true
+    },
+    {
+      "tier": "Annual",
+      "priceFrom": 420,
+      "currency": "BHD",
+      "duration": "12 months",
+      "highlighted": false
+    },
+    {
+      "tier": "Couples Annual",
+      "priceFrom": 737,
+      "currency": "BHD",
+      "duration": "12 months",
+      "note": "For two members",
+      "highlighted": false
+    }
+  ],
   "amenities": [
-    { "icon": "dumbbell",      "label": "Free Weights Zone" },
-    { "icon": "running",       "label": "Cardio Area" },
-    { "icon": "users",         "label": "Group Classes" },
-    { "icon": "droplet",       "label": "Sauna" },
-    { "icon": "shield",        "label": "24/7 Security" },
-    { "icon": "parking",       "label": "Free Parking" },
-    { "icon": "wifi",          "label": "High-Speed WiFi" },
-    { "icon": "coffee",        "label": "Protein Bar" }
+    { "icon": "dumbbell",   "label": "Free Weights Zone" },
+    { "icon": "running",    "label": "Cardio Area" },
+    { "icon": "users",      "label": "Group Classes" },
+    { "icon": "user",       "label": "Ladies-Only Floor" },
+    { "icon": "person-standing", "label": "Personal Trainers" },
+    { "icon": "eye",        "label": "Premium Views" }
   ],
   "gallery": [
-    { "url": "/images/branches/riyadh-north/interior-1.jpg", "tag": "interior", "alt": "Main gym floor" },
-    { "url": "/images/branches/riyadh-north/equipment-1.jpg", "tag": "equipment", "alt": "Cable machine section" },
-    { "url": "/images/branches/riyadh-north/classes-1.jpg",  "tag": "classes",   "alt": "Yoga class" }
+    { "url": "/images/branches/al-liwan/interior-1.jpg", "tag": "interior", "alt": "Main gym floor at Al Liwan" },
+    { "url": "/images/branches/al-liwan/interior-2.jpg", "tag": "interior", "alt": "Cardio and track area" },
+    { "url": "/images/branches/al-liwan/equipment-1.jpg", "tag": "equipment", "alt": "Free weights section" }
   ],
   "isNew": false,
   "comingSoon": false
 }
 ```
+
+---
+
+#### Branch 2 — The Park, Bahrain Bay (LIVE DATA)
+
+```json
+{
+  "id": "branch-bahrainbay",
+  "slug": "bahrain-bay",
+  "name": "Al Nakheel Premium — Bahrain Bay",
+  "shortName": "Bahrain Bay",
+  "location": "The Park, Bahrain Bay, Bahrain",
+  "tagline": "Train With a View. Live at the Bay.",
+  "heroImage": "/images/branches/bahrain-bay/hero.jpg",
+  "contact": {
+    "phone": "+97338833012",
+    "whatsapp": "+97338833012",
+    "instagram": "https://instagram.com/alnakheelpremium_bahrainbay",
+    "instagramHandle": "@alnakheelpremium_bahrainbay",
+    "address": "The Park, Bahrain Bay, Kingdom of Bahrain"
+  },
+  "location": {
+    "lat": null,
+    "lng": null,
+    "googleMapsEmbedUrl": "PENDING"
+  },
+  "timings": [
+    {
+      "section": "mix",
+      "label": "All Members",
+      "days": [
+        { "day": "Saturday",  "open": "05:00", "close": "22:00" },
+        { "day": "Sunday",    "open": "05:00", "close": "22:00" },
+        { "day": "Monday",    "open": "05:00", "close": "22:00" },
+        { "day": "Tuesday",   "open": "05:00", "close": "22:00" },
+        { "day": "Wednesday", "open": "05:00", "close": "22:00" },
+        { "day": "Thursday",  "open": "05:00", "close": "22:00" },
+        { "day": "Friday",    "open": "08:00", "close": "20:00" }
+      ]
+    }
+  ],
+  "memberships": [
+    {
+      "tier": "Monthly",
+      "priceFrom": 60,
+      "currency": "BHD",
+      "duration": "1 month",
+      "highlighted": false
+    },
+    {
+      "tier": "3 Months",
+      "priceFrom": 165,
+      "currency": "BHD",
+      "duration": "3 months",
+      "highlighted": false
+    },
+    {
+      "tier": "6 Months",
+      "priceFrom": 255,
+      "currency": "BHD",
+      "duration": "6 months",
+      "highlighted": true
+    },
+    {
+      "tier": "Annual",
+      "priceFrom": 350,
+      "currency": "BHD",
+      "duration": "12 months",
+      "highlighted": false
+    },
+    {
+      "tier": "Couples Annual",
+      "priceFrom": 690,
+      "currency": "BHD",
+      "duration": "12 months",
+      "note": "For two members",
+      "highlighted": false
+    }
+  ],
+  "amenities": [
+    { "icon": "dumbbell",   "label": "Free Weights Zone" },
+    { "icon": "running",    "label": "Cardio Area" },
+    { "icon": "users",      "label": "Group Classes" },
+    { "icon": "person-standing", "label": "Personal Trainers" },
+    { "icon": "waves",      "label": "Waterfront Views" },
+    { "icon": "building-2", "label": "Bay Location" }
+  ],
+  "gallery": [
+    { "url": "/images/branches/bahrain-bay/interior-1.jpg", "tag": "interior", "alt": "Main gym floor at Bahrain Bay" },
+    { "url": "/images/branches/bahrain-bay/interior-2.jpg", "tag": "interior", "alt": "Upper mezzanine level" },
+    { "url": "/images/branches/bahrain-bay/equipment-1.jpg", "tag": "equipment", "alt": "Equipment area with bay views" }
+  ],
+  "isNew": false,
+  "comingSoon": false
+}
+```
+
+---
 
 ### Global Site Settings Schema
 
@@ -259,17 +384,22 @@ All components are written in React and styled with Tailwind. Components are org
 {
   "siteName": "Al Nakheel Premium",
   "tagline": "One Fit For All",
+  "heroCopy": "Bahrain's Leading Premium Fitness Center for the Elite of Bahrain",
+  "country": "Bahrain",
+  "currency": "BHD",
   "logo": {
-    "light": "/brand/logo-light.svg",
-    "dark": "/brand/logo-dark.svg"
+    "dark": "/brand/logo-dark.svg",
+    "light": "/brand/logo-light.svg"
+  },
+  "contact": {
+    "generalPhone1": "+97338833663",
+    "generalPhone2": "+97338833990"
   },
   "socialLinks": {
     "instagram": "https://instagram.com/alnakheelpremium",
-    "twitter": "https://twitter.com/alnakheelpremium",
-    "snapchat": "https://snapchat.com/add/alnakheelpremium"
+    "snapchat": "PENDING"
   },
-  "globalWhatsapp": "+966XXXXXXXXX",
-  "branches": ["branch-riyadh-north", "branch-jeddah-corniche", "..."]
+  "branches": ["branch-alliwan", "branch-bahrainbay"]
 }
 ```
 
@@ -503,31 +633,73 @@ A subtle SVG concrete texture overlay at `4% opacity` can be applied to dark sec
 
 ---
 
-## 8. Branch Page JSON-LD Example
+## 8. Branch Page JSON-LD Examples
+
+### Al Liwan Branch
 
 ```json
 {
   "@context": "https://schema.org",
   "@type": "HealthClub",
-  "name": "Al Nakheel Premium — Riyadh North",
-  "image": "https://alnakheelpremium.com/images/branches/riyadh-north/hero.jpg",
-  "url": "https://alnakheelpremium.com/branches/riyadh-north",
-  "telephone": "+966-XX-XXXXXXX",
+  "name": "Al Nakheel Premium — Al Liwan",
+  "image": "https://alnakheelpremium.com/images/branches/al-liwan/hero.jpg",
+  "url": "https://alnakheelpremium.com/branches/al-liwan",
+  "telephone": "+97338833663",
   "address": {
     "@type": "PostalAddress",
-    "streetAddress": "Building 12, King Fahd Road",
-    "addressLocality": "Riyadh",
-    "addressCountry": "SA"
+    "streetAddress": "Al Liwan, Hamala",
+    "addressLocality": "Hamala",
+    "addressCountry": "BH"
   },
   "openingHoursSpecification": [
     {
       "@type": "OpeningHoursSpecification",
-      "dayOfWeek": ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday"],
-      "opens": "06:00",
+      "dayOfWeek": ["Saturday", "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday"],
+      "opens": "05:00",
       "closes": "23:00"
+    },
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Friday"],
+      "opens": "08:00",
+      "closes": "20:00"
     }
   ],
-  "priceRange": "SAR 199–599"
+  "priceRange": "BHD 70–737"
+}
+```
+
+### Bahrain Bay Branch
+
+```json
+{
+  "@context": "https://schema.org",
+  "@type": "HealthClub",
+  "name": "Al Nakheel Premium — Bahrain Bay",
+  "image": "https://alnakheelpremium.com/images/branches/bahrain-bay/hero.jpg",
+  "url": "https://alnakheelpremium.com/branches/bahrain-bay",
+  "telephone": "+97338833012",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "The Park, Bahrain Bay",
+    "addressLocality": "Bahrain Bay",
+    "addressCountry": "BH"
+  },
+  "openingHoursSpecification": [
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Saturday", "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday"],
+      "opens": "05:00",
+      "closes": "22:00"
+    },
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Friday"],
+      "opens": "08:00",
+      "closes": "20:00"
+    }
+  ],
+  "priceRange": "BHD 60–690"
 }
 ```
 
@@ -608,17 +780,44 @@ A subtle SVG concrete texture overlay at `4% opacity` can be applied to dark sec
 
 ---
 
-## 11. Placeholder Branches (To Be Updated)
+## 11. Branch Status Register
 
-```
-- Branch 1: [Name / City / Slug] — data pending
-- Branch 2: [Name / City / Slug] — data pending
-- Branch 3: [Name / City / Slug] — data pending
-- Branch 4: [Name / City / Slug] — data pending
-- Branch 5: [Name / City / Slug] — add as needed
-```
+| # | Branch Name | Slug | Status | Missing Data |
+|---|---|---|---|---|
+| 1 | Al Nakheel Premium — Al Liwan | `al-liwan` | **Data complete** | Google Maps embed URL, hero + gallery images |
+| 2 | Al Nakheel Premium — Bahrain Bay | `bahrain-bay` | **Data complete** | Google Maps embed URL, hero + gallery images |
+| 3 | TBD | TBD | Pending | All data |
+| 4 | TBD | TBD | Pending | All data |
+| 5+ | TBD | TBD | Pending | All data |
 
-Each branch must supply: hero image, 6+ gallery images, full timings, pricing tiers, amenities list, Google Maps embed URL, and contact details before their page can go live.
+### Branch Data Checklist (per branch, before go-live)
+
+- [ ] Branch name, slug, city, address
+- [ ] Hero image (min 1920×1080px)
+- [ ] Gallery images (minimum 6 — mix of interior, equipment, classes)
+- [ ] Full timings (all 7 days, per section if ladies/mix are separate)
+- [ ] All membership tiers with prices in BHD
+- [ ] Phone number (with country code +973)
+- [ ] Instagram handle
+- [ ] Google Maps embed URL
+- [ ] WhatsApp number
+
+### Pricing Quick Reference
+
+| Tier | Al Liwan | Bahrain Bay |
+|---|---|---|
+| Monthly | BD 70 | BD 60 |
+| 3 Months | BD 190 | BD 165 |
+| 6 Months | BD 290 | BD 255 |
+| Annual | BD 420 | BD 350 |
+| Couples Annual | BD 737 | BD 690 |
+
+### Timings Quick Reference
+
+| Branch | Sat–Thu (Mix) | Sat–Thu (Ladies) | Friday |
+|---|---|---|---|
+| Al Liwan | 5:00 AM – 11:00 PM | 6:00 AM – 10:00 PM | 8:00 AM – 8:00 PM |
+| Bahrain Bay | 5:00 AM – 10:00 PM | — (mixed only) | 8:00 AM – 8:00 PM |
 
 ---
 
