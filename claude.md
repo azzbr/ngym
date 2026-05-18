@@ -277,112 +277,217 @@ All components are written in React and styled with Tailwind. Components are org
 
 ## 6. Design & UI/UX Guidelines
 
-### 6.1 Brand Identity Principles
+### 6.1 Brand Identity — Observed from Assets
 
-Al Nakheel Premium targets an affluent, fitness-conscious audience. Every design decision must reinforce three adjectives: **Premium. Powerful. Precise.**
+The following is derived directly from the provided logo and interior photography. All design decisions must align with these observations.
+
+**Logo Mark:** A fluid, calligraphic white ribbon that forms an abstract figure — simultaneously suggesting the letter "A", a human in motion, and a palm frond (نخيل). It is monochromatic white on black. The mark has an organic, athletic energy.
+
+**Wordmark:** "ALNAKHEEL" set in a wide-tracked, thin-to-medium weight geometric sans-serif in full caps, with "PREMIUM" below in lighter weight and even wider tracking. The typography is clean, architectural, and restrained.
+
+**Logo Variants:**
+- `logo-dark.svg` — white mark + white wordmark on black (primary, used on dark backgrounds and hero)
+- `logo-light.svg` — black mark + black wordmark on white (used on light sections and print)
+
+**Physical Brand Signatures (must translate to digital):**
+- Signature motivational wall: **"WHAT DOESN'T KILL YOU MAKES YOU STRONGER"** — bold black type with select words in red. This typographic bold-statement pattern is a core brand element.
+- Signature structural detail: **red industrial pipes** running across raw exposed concrete ceilings — red is the brand's sole accent color
+- Signature flooring: **dark rubber athletic tracks** with white painted lane markings — inspires a horizontal stripe/track motif for dividers and section accents
+- Signature scale: **vast, double-height open floor plans** with floor-to-ceiling glass — photography must convey this sense of scale
+
+**Three adjectives every design decision must pass:** Raw. Powerful. Premium.
+
+---
 
 ### 6.2 Color Palette
 
-```
-Primary Gold      #C9A84C    — CTAs, highlights, accents, active states
-Deep Black        #0A0A0A    — Primary background (dark-first design)
-Off-White         #F5F0E8    — Body text on dark, card backgrounds
-Charcoal          #1A1A1A    — Card/section backgrounds
-Mid-Grey          #4A4A4A    — Secondary text, borders, dividers
-Success Green     #2D6A4F    — Availability, success states
-Alert Red         #C1121F    — Closed/holiday states, error messages
-```
-
-**Design Direction:** Dark-first. The primary experience is a dark-background website with gold accents, not a light theme with dark text.
-
-### 6.3 Typography
+The brand is strictly **black, white, and red**. There is no gold. No gradients. No third accent color.
 
 ```
-Display / Hero    : Playfair Display (serif) — for hero headings, branch names
-Body / UI         : Inter (sans-serif) — for all body copy, labels, UI text
-Accent / Numbers  : Bebas Neue (display) — for pricing, stats, large numbers
+Brand Black       #0D0D0D    — Logo background, dark section backgrounds, text on white
+Pure White        #FFFFFF    — Logo mark, headings on dark, light section backgrounds
+Brand Red         #CC1A1A    — The ONLY accent color: CTAs, highlights, active states,
+                               key words in typographic quotes, hover indicators
+Off-White         #F5F4F2    — Subtle light backgrounds, cards on white sections
+Concrete Grey     #2A2A2A    — Dark card backgrounds, footer
+Mid-Grey          #6B6B6B    — Secondary body text, placeholder text, dividers
+Light Grey        #E5E5E5    — Borders on light sections, input borders
+Closed Red        #CC1A1A    — Same as Brand Red; used for "closed" timing states
+Open Green        #1A7A3C    — "Open now" indicator only — used sparingly
 ```
 
-**Scale (Desktop):**
+**Do not introduce any other colors.** The brand power comes from this severe restraint.
+
+---
+
+### 6.3 Design Direction: Dual-Zone Layout
+
+The website alternates between two distinct zone types, mirroring the brand's physical contrast between its bold black exterior and bright white interior:
+
 ```
-H1  : 72px / 900 weight / Playfair Display
-H2  : 48px / 700 weight / Playfair Display
-H3  : 32px / 600 weight / Inter
-H4  : 24px / 600 weight / Inter
-Body: 16px / 400 weight / Inter
-Small: 14px / 400 weight / Inter
+DARK ZONES  — Black (#0D0D0D) background, white text, red accent
+             Used for: hero sections, navbar, footer, quote blocks, CTA banners
+
+LIGHT ZONES — White (#FFFFFF) or Off-White (#F5F4F2) background, black text, red accent
+             Used for: branch info, pricing, timings, gallery, about sections
 ```
 
-**Mobile: scale down H1 → 42px, H2 → 32px, maintain body at 16px.**
+Sections alternate between zones to create rhythm. Never place two dark zones or two light zones back to back without a deliberate break.
 
-### 6.4 Spacing System
+---
+
+### 6.4 Typography
+
+The logo wordmark uses a geometric sans-serif with very wide letter-spacing. Match this character in all digital typography.
+
+```
+Display / Wordmark : Montserrat — Black (900) for "ALNAKHEEL"-style headings,
+                                  Light (300) for "PREMIUM"-style subtitles
+Body / UI          : Inter — Regular (400) for body, SemiBold (600) for labels/nav
+Impact / Quote     : Bebas Neue — for motivational quote blocks and large stats only
+```
+
+**Type Scale (Desktop):**
+```
+Hero H1     : 96px / Montserrat Black / tracking: 0.15em / all-caps
+Page H1     : 64px / Montserrat Black / tracking: 0.1em / all-caps
+H2          : 48px / Montserrat Bold (700) / tracking: 0.05em
+H3          : 28px / Montserrat SemiBold (600)
+H4          : 20px / Inter SemiBold (600)
+Body        : 16px / Inter Regular (400) / line-height: 1.7
+Small       : 14px / Inter Regular (400)
+Quote Block : 72–120px / Bebas Neue / tracking: 0.02em
+Pricing Num : 56px / Bebas Neue
+```
+
+**Mobile scale:** Hero H1 → 48px, Page H1 → 40px, H2 → 32px, Quote → 48–72px.
+
+**Typographic Quote Pattern (key brand element):**
+Replicate the wall art digitally. Large all-caps quote text, most words in black (on white) or white (on black), with 1–2 power words set in Brand Red `#CC1A1A`.
+
+```
+Example:
+WHAT DOESN'T KILL [black/white]
+YOU [RED]
+MAKES YOU [black/white]
+STRONGER [RED]
+```
+
+Use this pattern in hero sections, section dividers, and CTA banners.
+
+---
+
+### 6.5 Spacing System
 
 Use an 8-point grid exclusively.
 ```
-4px   — xs (tight spacing, badge padding)
+4px   — xs (badge padding, tight gaps)
 8px   — sm
 16px  — md
 24px  — lg
 32px  — xl
 48px  — 2xl
 64px  — 3xl
-96px  — 4xl (section padding)
-128px — 5xl (hero vertical padding)
+96px  — 4xl (section padding top/bottom)
+128px — 5xl (hero padding top/bottom)
 ```
 
-### 6.5 UI Design Patterns
+---
 
-**Cards:**
-- Background: `#1A1A1A` (Charcoal)
-- Border: `1px solid rgba(201, 168, 76, 0.2)` (subtle gold)
-- Hover: border opacity → 0.6, slight upward `translateY(-4px)` with shadow
-- Border-radius: `12px`
+### 6.6 UI Design Patterns
+
+**Cards (on light zones):**
+- Background: `#FFFFFF`
+- Border: `1px solid #E5E5E5`
+- Hover: left border becomes `4px solid #CC1A1A`, slight `translateY(-4px)` + box-shadow
+- Border-radius: `0px` — no rounded corners. The brand is architectural, not soft.
+
+**Cards (on dark zones):**
+- Background: `#2A2A2A`
+- Border: `1px solid rgba(255,255,255,0.08)`
+- Hover: left border `4px solid #CC1A1A`
 
 **Buttons:**
 ```
-Primary   : bg #C9A84C, text #0A0A0A, font-weight 700, px-8 py-3, rounded-full
-Secondary : border 1px #C9A84C, text #C9A84C, transparent bg, same sizing
-Ghost     : text #F5F0E8, no border, underline on hover
+Primary   : bg #CC1A1A, text #FFFFFF, font Montserrat Bold, px-8 py-3,
+            tracking: 0.1em, all-caps, border-radius: 0px
+            Hover: bg #AA1414
+
+Secondary : border 2px solid #CC1A1A, text #CC1A1A, transparent bg, same sizing
+            Hover: bg #CC1A1A, text #FFFFFF
+
+Ghost     : text #FFFFFF (on dark) or #0D0D0D (on light), no border,
+            underline grows on hover via CSS clip-path animation
 ```
 
-**Section Separators:** Use sparse, thin gold horizontal lines (`<hr>` styled with `border-color: #C9A84C, opacity: 0.15`) rather than heavy dividers.
+**No rounded buttons.** Sharp rectangle edges only — consistent with the industrial aesthetic.
 
-**Imagery:**
-- High-contrast, dramatic gym photography
-- Avoid stock-photo feel — use real branch images wherever possible
-- Apply a subtle dark overlay (`rgba(0,0,0,0.4)`) on all hero images to ensure text legibility
-- Image aspect ratios: hero 16:9, gallery cards 4:3, branch cards 3:2
+**Dividers & Track Motif:**
+Use the athletic track floor pattern as a decorative element between sections:
+```css
+/* Track stripe divider */
+border-top: 3px solid #0D0D0D;
+margin: 0;
+/* Optionally add a 1px red line 8px below for a double-stripe effect */
+```
 
-**Icons:** Use [Lucide React](https://lucide.dev) — clean, consistent, and tree-shakeable.
+**Section separators:** A bold `3px` black line (on light) or white line (on dark), full-width, with no padding — mimicking the track floor line markings.
 
-**Animations:**
-- Use `framer-motion` for page transitions and scroll-triggered reveals
-- Entrance: `opacity: 0 → 1` + `translateY(20px → 0)`, duration `0.5s`, ease `easeOut`
-- Stagger child elements by `0.1s`
-- Never animate more than 3 elements simultaneously to avoid visual noise
+**Imagery Rules:**
+- Only use real photography from the actual branches — never stock imagery
+- Hero images: apply `rgba(0,0,0,0.5)` overlay to ensure white text legibility
+- Showcase scale: wide-angle shots of the full gym floor are preferred over closeups
+- The natural light through floor-to-ceiling windows is a strong visual — prioritize shots that capture it
+- Image aspect ratios: hero 16:9 or cinematic 21:9, gallery cards 4:3, branch cards 3:2
 
-### 6.6 Layout Guidelines
+**Icons:** Use [Lucide React](https://lucide.dev) — stroke-only, 1.5px weight, no fills.
+
+**Texture / Industrial Motif (optional, use sparingly):**
+A subtle SVG concrete texture overlay at `4% opacity` can be applied to dark section backgrounds to evoke the exposed concrete ceiling aesthetic.
+
+---
+
+### 6.7 Animations
+
+- Library: `framer-motion`
+- Entrance: `opacity: 0 → 1` + `translateY(24px → 0)`, duration `0.45s`, ease `[0.25, 0.1, 0.25, 1]`
+- Stagger child items by `0.08s`
+- Quote block words: reveal word by word with a stagger of `0.05s`
+- No bounce, no spring, no playful easing — movements are direct and confident
+- Respect `prefers-reduced-motion`: wrap all animations in a media query check
+
+---
+
+### 6.8 Layout Guidelines
 
 - Max content width: `1280px`, centered
-- Full-bleed sections (hero, dark feature sections): `100vw`
+- Full-bleed sections (hero, quote banners): `100vw`
 - Side padding on mobile: `16px`
 - Side padding on tablet: `32px`
-- Side padding on desktop: auto (handled by max-width container)
+- Side padding on desktop: auto (max-width container)
 
-### 6.7 Navigation
+---
 
-- **Desktop:** Fixed top navbar, transparent on hero → solid `#0A0A0A` on scroll, logo left, links center, CTA right
-- **Mobile:** Hamburger menu → full-screen overlay with gold accents
-- Active link: gold underline indicator
-- Include a persistent "Find a Branch" CTA button in the nav
+### 6.9 Navigation
 
-### 6.8 Accessibility
+- **Desktop:** Fixed top navbar — transparent on hero, transitions to solid `#0D0D0D` on scroll
+- Logo: left-aligned, always the dark variant (white on black navbar)
+- Nav links: center, Montserrat SemiBold, tracking: 0.08em, all-caps, small size (14px)
+- Active link: `2px solid #CC1A1A` bottom border
+- CTA Button: right-aligned, red primary button — "JOIN NOW"
+- **Mobile:** Hamburger (3 lines → X) → full-screen black overlay, links stacked vertically in large Bebas Neue type, red CTA at bottom
+- Include a persistent "Find a Branch" link in the nav (links to `/branches`)
 
-- Minimum contrast ratio: 4.5:1 for all body text
-- All interactive elements must have `:focus-visible` outlines in gold
-- All images must have descriptive `alt` attributes
-- Semantic HTML throughout (`<main>`, `<nav>`, `<article>`, `<section>`)
-- ARIA labels on icon-only buttons
+---
+
+### 6.10 Accessibility
+
+- Minimum contrast ratio: 4.5:1 for all body text (white on `#0D0D0D` = 19.5:1 ✓, white on `#CC1A1A` = 4.6:1 ✓)
+- All interactive elements: `:focus-visible` outline `2px solid #CC1A1A` with `outline-offset: 4px`
+- All images: descriptive `alt` attributes
+- Semantic HTML: `<main>`, `<nav>`, `<article>`, `<section>`, `<header>`, `<footer>`
+- ARIA labels on all icon-only buttons
+- Motion: `@media (prefers-reduced-motion: reduce)` disables all `framer-motion` animations
 
 ---
 
