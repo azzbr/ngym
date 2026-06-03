@@ -6,7 +6,7 @@
   "type": "ladies",
   "locationLabel": "Riffa",
   "tagline": "Exclusively for Women. Unapologetically Premium.",
-  "heroImage": "/images/branches/riffa-ladies/hero.jpg",
+  "heroImage": "/images/branches/riffa-ladies/4.jpg",
   "mapQuery": "Al Nakheel Premium Ladies Riffa Bahrain",
   "pendingData": true,
   "contact": {
@@ -28,7 +28,13 @@
     { "icon": "ParkingSquare", "label": "Free Parking" },
     { "icon": "Wifi",          "label": "High-Speed WiFi" }
   ],
-  "gallery": [],
+  "gallery": [
+    { "url": "/images/branches/riffa-ladies/4.jpg", "tag": "interior",  "alt": "Al Nakheel Premium Ladies Riffa branded exterior" },
+    { "url": "/images/branches/riffa-ladies/3.jpg", "tag": "interior",  "alt": "Spacious cardio floor with TechnoGym treadmills" },
+    { "url": "/images/branches/riffa-ladies/2.jpg", "tag": "equipment", "alt": "Selectorised resistance machine line" },
+    { "url": "/images/branches/riffa-ladies/1.jpg", "tag": "equipment", "alt": "Cable station, benches and dumbbell area" },
+    { "url": "/images/branches/riffa-ladies/5.jpg", "tag": "equipment", "alt": "Functional cable machine with mirrored walls" }
+  ],
   "isNew": false,
   "comingSoon": false
 }

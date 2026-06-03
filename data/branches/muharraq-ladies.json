@@ -6,7 +6,7 @@
   "type": "ladies",
   "locationLabel": "Muharraq",
   "tagline": "Premium Fitness for the Women of Muharraq.",
-  "heroImage": "/images/branches/muharraq-ladies/hero.jpg",
+  "heroImage": "/images/branches/muharraq-ladies/2.jpg",
   "mapQuery": "Al Nakheel Premium Ladies Muharraq Road 1531 Bahrain",
   "pendingData": true,
   "contact": {
@@ -28,7 +28,12 @@
     { "icon": "ParkingSquare", "label": "Free Parking" },
     { "icon": "Wifi",          "label": "High-Speed WiFi" }
   ],
-  "gallery": [],
+  "gallery": [
+    { "url": "/images/branches/muharraq-ladies/2.jpg", "tag": "interior",  "alt": "Al Nakheel Premium Ladies Muharraq branded entrance" },
+    { "url": "/images/branches/muharraq-ladies/4.jpg", "tag": "interior",  "alt": "Double-height training floor seen from the mezzanine" },
+    { "url": "/images/branches/muharraq-ladies/1.jpg", "tag": "equipment", "alt": "Vast machine and cardio floor with motivational graphics" },
+    { "url": "/images/branches/muharraq-ladies/3.jpg", "tag": "classes",   "alt": "Strength floor with boxing bags beneath the mezzanine" }
+  ],
   "isNew": false,
   "comingSoon": false
 }
