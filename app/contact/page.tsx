@@ -1,6 +1,8 @@
 import { Metadata } from "next";
 import { getAllBranches } from "@/lib/branches";
+import { formatPhone } from "@/lib/utils";
 import SectionHeading from "@/components/ui/SectionHeading";
+import ContactForm from "@/components/ui/ContactForm";
 import { Phone, AtSign, MapPin } from "lucide-react";
 
 export const metadata: Metadata = {
@@ -49,7 +51,7 @@ export default function ContactPage() {
                     className="flex items-center gap-3 text-[#0D0D0D] hover:text-[#CC1A1A] transition-colors text-sm font-semibold"
                   >
                     <Phone size={16} className="text-[#CC1A1A]" />
-                    {branch.contact.phone}
+                    {formatPhone(branch.contact.phone)}
                   </a>
                   <a
                     href={branch.contact.instagram}
@@ -80,71 +82,13 @@ export default function ContactPage() {
       <section className="bg-[#F5F4F2] py-20">
         <div className="max-w-site mx-auto px-4 md:px-8 max-w-2xl">
           <SectionHeading eyebrow="Enquiry" title="Send Us a" redWord="Message" light />
-          <form className="mt-10 flex flex-col gap-5" action="#" method="POST">
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-              <div>
-                <label className="block font-montserrat font-bold text-xs uppercase tracking-wider text-[#0D0D0D] mb-2">
-                  Name
-                </label>
-                <input
-                  type="text"
-                  name="name"
-                  required
-                  className="w-full border border-[#E5E5E5] bg-white px-4 py-3 text-[#0D0D0D] text-sm focus:border-[#CC1A1A] focus:outline-none transition-colors"
-                  placeholder="Your name"
-                />
-              </div>
-              <div>
-                <label className="block font-montserrat font-bold text-xs uppercase tracking-wider text-[#0D0D0D] mb-2">
-                  Phone
-                </label>
-                <input
-                  type="tel"
-                  name="phone"
-                  className="w-full border border-[#E5E5E5] bg-white px-4 py-3 text-[#0D0D0D] text-sm focus:border-[#CC1A1A] focus:outline-none transition-colors"
-                  placeholder="+973 XXXX XXXX"
-                />
-              </div>
-            </div>
-
-            <div>
-              <label className="block font-montserrat font-bold text-xs uppercase tracking-wider text-[#0D0D0D] mb-2">
-                Branch Interest
-              </label>
-              <select
-                name="branch"
-                className="w-full border border-[#E5E5E5] bg-white px-4 py-3 text-[#0D0D0D] text-sm focus:border-[#CC1A1A] focus:outline-none transition-colors"
-              >
-                <option value="">Select a branch</option>
-                {branches.map((b) => (
-                  <option key={b.id} value={b.slug}>
-                    {b.shortName} — {b.locationLabel}
-                  </option>
-                ))}
-                <option value="general">General / Not sure</option>
-              </select>
-            </div>
-
-            <div>
-              <label className="block font-montserrat font-bold text-xs uppercase tracking-wider text-[#0D0D0D] mb-2">
-                Message
-              </label>
-              <textarea
-                name="message"
-                rows={5}
-                className="w-full border border-[#E5E5E5] bg-white px-4 py-3 text-[#0D0D0D] text-sm focus:border-[#CC1A1A] focus:outline-none transition-colors resize-none"
-                placeholder="How can we help you?"
-              />
-            </div>
-
-            <button
-              type="submit"
-              className="bg-[#CC1A1A] hover:bg-[#AA1414] text-white font-montserrat font-bold text-xs uppercase tracking-[0.12em] px-8 py-4 transition-colors self-start"
-              style={{ fontFamily: "var(--font-montserrat, sans-serif)" }}
-            >
-              Send Message
-            </button>
-          </form>
+          <ContactForm
+            branches={branches.map((b) => ({
+              slug: b.slug,
+              shortName: b.shortName,
+              locationLabel: b.locationLabel,
+            }))}
+          />
         </div>
       </section>
 

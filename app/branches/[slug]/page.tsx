@@ -1,6 +1,7 @@
 import { notFound } from "next/navigation";
 import { Metadata } from "next";
 import { getBranchBySlug, getAllBranchSlugs, getMapEmbedUrl } from "@/lib/branches";
+import { formatPhone } from "@/lib/utils";
 import SectionHeading from "@/components/ui/SectionHeading";
 import TimingsTable from "@/components/ui/TimingsTable";
 import PricingTable from "@/components/ui/PricingTable";
@@ -116,7 +117,7 @@ export default async function BranchPage({
               href={`tel:${branch.contact.phone}`}
               className="flex items-center gap-2 text-white text-sm font-semibold hover:text-white/80 transition-colors"
             >
-              <Phone size={14} /> {branch.contact.phone}
+              <Phone size={14} /> {formatPhone(branch.contact.phone)}
             </a>
             <a
               href={branch.contact.instagram}
@@ -155,7 +156,7 @@ export default async function BranchPage({
                     Open During Regular Working Hours
                   </p>
                   <p className="text-[#6B6B6B] text-sm">
-                    Call <a href={`tel:${branch.contact.phone}`} className="text-[#CC1A1A] font-semibold">{branch.contact.phone}</a> or
+                    Call <a href={`tel:${branch.contact.phone}`} className="text-[#CC1A1A] font-semibold">{formatPhone(branch.contact.phone)}</a> or
                     DM <a href={branch.contact.instagram} target="_blank" rel="noopener noreferrer" className="text-[#CC1A1A] font-semibold">{branch.contact.instagramHandle}</a> to confirm current hours.
                   </p>
                 </div>
