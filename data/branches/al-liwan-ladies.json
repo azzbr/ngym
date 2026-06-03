@@ -6,7 +6,7 @@
   "type": "ladies",
   "locationLabel": "Al Liwan, Hamala",
   "tagline": "A Sanctuary for Women. Built to Perform.",
-  "heroImage": "/images/branches/al-liwan-ladies/hero.jpg",
+  "heroImage": "/images/branches/al-liwan/2.jpg",
   "mapQuery": "Al Nakheel Premium Ladies Al Liwan Hamala Bahrain",
   "pendingData": false,
   "contact": {
@@ -43,7 +43,16 @@
     { "icon": "ParkingSquare", "label": "Free Parking" },
     { "icon": "Wifi",          "label": "High-Speed WiFi" }
   ],
-  "gallery": [],
+  "gallery": [
+    { "url": "/images/branches/al-liwan/2.jpg",  "tag": "interior",  "alt": "Main gym floor" },
+    { "url": "/images/branches/al-liwan/3.jpg",  "tag": "interior",  "alt": "Strength training floor" },
+    { "url": "/images/branches/al-liwan/5.jpg",  "tag": "equipment", "alt": "Free weights and benches" },
+    { "url": "/images/branches/al-liwan/6.jpg",  "tag": "interior",  "alt": "Functional training zone" },
+    { "url": "/images/branches/al-liwan/7.jpg",  "tag": "equipment", "alt": "Dumbbell racks" },
+    { "url": "/images/branches/al-liwan/8.jpg",  "tag": "classes",   "alt": "Boxing and functional area" },
+    { "url": "/images/branches/al-liwan/15.jpg", "tag": "classes",   "alt": "Turf functional training lane" },
+    { "url": "/images/branches/al-liwan/16.jpg", "tag": "classes",   "alt": "Sprint turf lane" }
+  ],
   "isNew": false,
   "comingSoon": false
 }
