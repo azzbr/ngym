@@ -35,10 +35,12 @@ export default function AboutPage() {
       <section className="bg-[#0D0D0D] pt-36 pb-20">
         <div className="max-w-site mx-auto px-4 md:px-8">
           <SectionHeading
+            as="h1"
             eyebrow="Our Story"
             title="The Fitness Centre"
             redWord="of the Elite"
             subtitle="Al Nakheel Premium was built for those who refuse to settle. Every branch is a statement."
+            alignment="center"
           />
         </div>
       </section>

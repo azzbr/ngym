@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
 
@@ -16,6 +17,10 @@ const links = [
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+  const pathname = usePathname();
+
+  const isActive = (href: string) =>
+    href === "/" ? pathname === "/" : pathname.startsWith(href);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
@@ -46,16 +51,26 @@ export default function Navbar() {
 
           {/* Desktop nav */}
           <nav className="hidden lg:flex items-center gap-8">
-            {links.map((l) => (
-              <Link
-                key={l.href}
-                href={l.href}
-                className="font-inter text-xs font-semibold uppercase tracking-[0.1em] text-white/80 hover:text-white transition-colors relative group"
-              >
-                {l.label}
-                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#CC1A1A] transition-all duration-300 group-hover:w-full" />
-              </Link>
-            ))}
+            {links.map((l) => {
+              const active = isActive(l.href);
+              return (
+                <Link
+                  key={l.href}
+                  href={l.href}
+                  aria-current={active ? "page" : undefined}
+                  className={`font-inter text-xs font-semibold uppercase tracking-[0.1em] transition-colors relative group ${
+                    active ? "text-white" : "text-white/80 hover:text-white"
+                  }`}
+                >
+                  {l.label}
+                  <span
+                    className={`absolute -bottom-1 left-0 h-0.5 bg-[#CC1A1A] transition-all duration-300 ${
+                      active ? "w-full" : "w-0 group-hover:w-full"
+                    }`}
+                  />
+                </Link>
+              );
+            })}
           </nav>
 
           {/* CTA */}
