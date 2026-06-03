@@ -51,10 +51,6 @@ export default function HeroSection() {
       {/* Gradient overlay — heavier at bottom for text legibility */}
       <div className="absolute inset-0 bg-gradient-to-b from-[#0D0D0D]/70 via-[#0D0D0D]/40 to-[#0D0D0D]/80" />
 
-      {/* Track stripe accents */}
-      <div className="absolute bottom-0 left-0 right-0 h-[3px] bg-white/15" />
-      <div className="absolute bottom-[10px] left-0 right-0 h-px bg-[#CC1A1A]" />
-
       {/* Content */}
       <motion.div
         className="relative z-10 max-w-site mx-auto px-4 md:px-8 flex flex-col items-center text-center gap-8"
