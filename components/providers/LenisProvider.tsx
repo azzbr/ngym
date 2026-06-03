@@ -13,16 +13,19 @@ function GSAPLenisBridge() {
 
     gsap.registerPlugin(ScrollTrigger);
 
-    // Sync GSAP ScrollTrigger with Lenis
-    lenis.on("scroll", ScrollTrigger.update);
+    // Keep ScrollTrigger in sync with Lenis scroll position
+    const onScroll = () => ScrollTrigger.update();
+    lenis.on("scroll", onScroll);
 
-    gsap.ticker.add((time) => {
-      lenis.raf(time * 1000);
-    });
+    // Drive Lenis from GSAP's single ticker (autoRaf is disabled below so
+    // Lenis is advanced exactly ONCE per frame — no double RAF loop).
+    const raf = (time: number) => lenis.raf(time * 1000);
+    gsap.ticker.add(raf);
     gsap.ticker.lagSmoothing(0);
 
     return () => {
-      lenis.off("scroll", ScrollTrigger.update);
+      lenis.off("scroll", onScroll);
+      gsap.ticker.remove(raf); // critical: prevents the ticker from stacking
     };
   }, [lenis]);
 
@@ -35,7 +38,11 @@ export default function LenisProvider({
   children: React.ReactNode;
 }) {
   return (
-    <ReactLenis root options={{ lerp: 0.1, duration: 1.4, smoothWheel: true }}>
+    <ReactLenis
+      root
+      autoRaf={false}
+      options={{ lerp: 0.1, smoothWheel: true }}
+    >
       <GSAPLenisBridge />
       {children}
     </ReactLenis>
