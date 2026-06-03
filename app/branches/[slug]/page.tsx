@@ -181,6 +181,12 @@ export default async function BranchPage({
               <div className="mt-10">
                 <PricingTable memberships={branch.memberships} light />
               </div>
+              {branch.membershipNote && (
+                <p className="mt-6 text-[#6B6B6B] text-sm flex items-start gap-2 max-w-2xl">
+                  <span className="text-[#CC1A1A] font-bold">✦</span>
+                  {branch.membershipNote}
+                </p>
+              )}
             </>
           ) : (
             <>

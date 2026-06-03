@@ -27,11 +27,13 @@
       ]
     }
   ],
+  "membershipNote": "Bahrain Bay membership also grants access to Muharraq / Barbar Ladies and Jannusan Mix branches.",
   "memberships": [
+    { "tier": "Day Pass",       "priceFrom": 10,  "currency": "BHD", "duration": "1 day",     "highlighted": false },
     { "tier": "Monthly",        "priceFrom": 60,  "currency": "BHD", "duration": "1 month",   "highlighted": false },
     { "tier": "3 Months",       "priceFrom": 165, "currency": "BHD", "duration": "3 months",  "highlighted": false },
     { "tier": "6 Months",       "priceFrom": 255, "currency": "BHD", "duration": "6 months",  "highlighted": true  },
-    { "tier": "Annual",         "priceFrom": 350, "currency": "BHD", "duration": "12 months", "highlighted": false },
+    { "tier": "1 Year",         "priceFrom": 350, "currency": "BHD", "duration": "12 months", "highlighted": false },
     { "tier": "Couples Annual", "priceFrom": 690, "currency": "BHD", "duration": "12 months", "highlighted": false, "note": "For two members" }
   ],
   "amenities": [

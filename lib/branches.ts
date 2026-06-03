@@ -60,6 +60,7 @@ export type Branch = {
   googleMapsEmbedUrl: string;
   timings: TimingSection[];
   memberships: Membership[];
+  membershipNote?: string;
   amenities: Amenity[];
   gallery: GalleryImage[];
   isNew: boolean;
