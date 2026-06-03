@@ -6,7 +6,7 @@
   "type": "mixed",
   "locationLabel": "Sama Bay, Al Hidd",
   "tagline": "Premium Fitness at the Bay.",
-  "heroImage": "/images/branches/sama-bay/hero.jpg",
+  "heroImage": "/images/branches/sama-bay/1.jpg",
   "mapQuery": "Al Nakheel Premium Sama Bay Al Hidd Muharraq Bahrain",
   "pendingData": true,
   "contact": {
@@ -27,7 +27,18 @@
     { "icon": "ParkingSquare", "label": "Free Parking" },
     { "icon": "Wifi",          "label": "High-Speed WiFi" }
   ],
-  "gallery": [],
+  "gallery": [
+    { "url": "/images/branches/sama-bay/1.jpg",  "tag": "interior",  "alt": "Branded turf training floor" },
+    { "url": "/images/branches/sama-bay/2.jpg",  "tag": "equipment", "alt": "Strength machines and mezzanine" },
+    { "url": "/images/branches/sama-bay/3.jpg",  "tag": "interior",  "alt": "Main gym floor" },
+    { "url": "/images/branches/sama-bay/4.jpg",  "tag": "interior",  "alt": "Training floor with bay views" },
+    { "url": "/images/branches/sama-bay/5.jpg",  "tag": "interior",  "alt": "Upper mezzanine level" },
+    { "url": "/images/branches/sama-bay/6.jpg",  "tag": "equipment", "alt": "Cardio area by the arched windows" },
+    { "url": "/images/branches/sama-bay/7.jpg",  "tag": "interior",  "alt": "Waterfront exterior at sunset" },
+    { "url": "/images/branches/sama-bay/8.jpg",  "tag": "classes",   "alt": "Group training studio" },
+    { "url": "/images/branches/sama-bay/9.jpg",  "tag": "interior",  "alt": "Weights area beneath the arched windows" },
+    { "url": "/images/branches/sama-bay/10.jpg", "tag": "interior",  "alt": "Premium wood-floor zone with bay views" }
+  ],
   "isNew": false,
   "comingSoon": false
 }
