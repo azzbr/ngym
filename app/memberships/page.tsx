@@ -83,11 +83,11 @@ export default function MembershipsPage() {
               },
               {
                 q: "Do you offer couples memberships?",
-                a: "Yes — both branches offer couples annual memberships. Al Liwan from BD 737, Bahrain Bay from BD 690.",
+                a: "Yes — select branches offer couples annual memberships. Contact your nearest branch for current couples pricing.",
               },
               {
                 q: "What are your opening hours on Fridays?",
-                a: "Both branches open at 8:00 AM and close at 8:00 PM on Fridays.",
+                a: "Most branches open at 8:00 AM on Fridays. Contact your specific branch to confirm exact Friday hours.",
               },
             ].map(({ q, a }) => (
               <div key={q} className="py-6">

@@ -1,0 +1,34 @@
+{
+  "id": "branch-riffaladies",
+  "slug": "riffa-ladies",
+  "name": "Al Nakheel Premium Ladies — Riffa",
+  "shortName": "Riffa Ladies",
+  "type": "ladies",
+  "locationLabel": "Riffa",
+  "tagline": "Exclusively for Women. Unapologetically Premium.",
+  "heroImage": "/images/branches/riffa-ladies/hero.jpg",
+  "mapQuery": "Al Nakheel Premium Ladies Riffa Bahrain",
+  "pendingData": true,
+  "contact": {
+    "phone": "+97338833663",
+    "whatsapp": "+97338833663",
+    "instagram": "https://instagram.com/alnakheelladies_riffa",
+    "instagramHandle": "@alnakheelladies_riffa",
+    "address": "Riffa, Southern Governorate, Kingdom of Bahrain"
+  },
+  "googleMapsEmbedUrl": "",
+  "timings": [],
+  "memberships": [],
+  "amenities": [
+    { "icon": "Dumbbell",      "label": "Free Weights Zone" },
+    { "icon": "Activity",      "label": "Cardio Area" },
+    { "icon": "Users",         "label": "Group Classes" },
+    { "icon": "User",          "label": "Personal Trainers" },
+    { "icon": "ShieldCheck",   "label": "Ladies-Only Facility" },
+    { "icon": "ParkingSquare", "label": "Free Parking" },
+    { "icon": "Wifi",          "label": "High-Speed WiFi" }
+  ],
+  "gallery": [],
+  "isNew": false,
+  "comingSoon": false
+}

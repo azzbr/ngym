@@ -3,9 +3,12 @@
   "slug": "bahrain-bay",
   "name": "Al Nakheel Premium — Bahrain Bay",
   "shortName": "Bahrain Bay",
+  "type": "mixed",
   "locationLabel": "The Park, Bahrain Bay",
   "tagline": "Train With a View. Live at the Bay.",
   "heroImage": "/images/branches/bahrain-bay/hero.jpg",
+  "mapQuery": "Al Nakheel Premium The Park Bahrain Bay Bahrain",
+  "pendingData": false,
   "contact": {
     "phone": "+97338833012",
     "whatsapp": "+97338833012",

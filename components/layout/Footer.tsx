@@ -1,10 +1,6 @@
 import Link from "next/link";
 import { Phone, AtSign } from "lucide-react";
-
-const branches = [
-  { label: "Al Liwan", href: "/branches/al-liwan" },
-  { label: "Bahrain Bay", href: "/branches/bahrain-bay" },
-];
+import { getAllBranches } from "@/lib/branches";
 
 const navLinks = [
   { label: "About Us", href: "/about" },
@@ -14,6 +10,8 @@ const navLinks = [
 ];
 
 export default function Footer() {
+  const branches = getAllBranches();
+
   return (
     <footer className="bg-[#0D0D0D] border-t border-white/10">
       <div className="max-w-site mx-auto px-4 md:px-8 py-16 grid grid-cols-1 md:grid-cols-4 gap-12">
@@ -51,61 +49,84 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Branches */}
-        <div>
-          <h4 className="font-montserrat font-bold text-xs uppercase tracking-[0.15em] text-white mb-4">
-            Our Branches
-          </h4>
-          <ul className="flex flex-col gap-3">
-            {branches.map((b) => (
-              <li key={b.href}>
-                <Link
-                  href={b.href}
-                  className="text-white/60 hover:text-white text-sm transition-colors"
-                >
-                  {b.label}
-                </Link>
-              </li>
-            ))}
-          </ul>
+        {/* Branches — split into Mixed and Ladies columns on large screens */}
+        <div className="md:col-span-2 grid grid-cols-2 gap-8">
+          <div>
+            <h4 className="font-montserrat font-bold text-xs uppercase tracking-[0.15em] text-white mb-4">
+              Mixed Branches
+            </h4>
+            <ul className="flex flex-col gap-2.5">
+              {branches
+                .filter((b) => b.type === "mixed")
+                .map((b) => (
+                  <li key={b.slug}>
+                    <Link
+                      href={`/branches/${b.slug}`}
+                      className="text-white/60 hover:text-white text-sm transition-colors"
+                    >
+                      {b.shortName}
+                    </Link>
+                  </li>
+                ))}
+            </ul>
+          </div>
+          <div>
+            <h4 className="font-montserrat font-bold text-xs uppercase tracking-[0.15em] text-white mb-4">
+              Ladies Branches
+            </h4>
+            <ul className="flex flex-col gap-2.5">
+              {branches
+                .filter((b) => b.type === "ladies")
+                .map((b) => (
+                  <li key={b.slug}>
+                    <Link
+                      href={`/branches/${b.slug}`}
+                      className="text-white/60 hover:text-white text-sm transition-colors"
+                    >
+                      {b.shortName}
+                    </Link>
+                  </li>
+                ))}
+            </ul>
+          </div>
         </div>
 
-        {/* Links */}
-        <div>
-          <h4 className="font-montserrat font-bold text-xs uppercase tracking-[0.15em] text-white mb-4">
-            Quick Links
-          </h4>
-          <ul className="flex flex-col gap-3">
-            {navLinks.map((l) => (
-              <li key={l.href}>
-                <Link
-                  href={l.href}
-                  className="text-white/60 hover:text-white text-sm transition-colors"
-                >
-                  {l.label}
-                </Link>
+        {/* Right column: quick links + contact */}
+        <div className="flex flex-col gap-8">
+          <div>
+            <h4 className="font-montserrat font-bold text-xs uppercase tracking-[0.15em] text-white mb-4">
+              Quick Links
+            </h4>
+            <ul className="flex flex-col gap-2.5">
+              {navLinks.map((l) => (
+                <li key={l.href}>
+                  <Link
+                    href={l.href}
+                    className="text-white/60 hover:text-white text-sm transition-colors"
+                  >
+                    {l.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div>
+            <h4 className="font-montserrat font-bold text-xs uppercase tracking-[0.15em] text-white mb-4">
+              Contact
+            </h4>
+            <ul className="flex flex-col gap-2.5 text-sm text-white/60">
+              <li>
+                <a href="tel:+97338833663" className="hover:text-white transition-colors">
+                  +973 3883 3663
+                </a>
               </li>
-            ))}
-          </ul>
-        </div>
-
-        {/* Contact */}
-        <div>
-          <h4 className="font-montserrat font-bold text-xs uppercase tracking-[0.15em] text-white mb-4">
-            Contact
-          </h4>
-          <ul className="flex flex-col gap-3 text-sm text-white/60">
-            <li>
-              <a href="tel:+97338833663" className="hover:text-white transition-colors">
-                +973 3883 3663
-              </a>
-            </li>
-            <li>
-              <a href="tel:+97338833990" className="hover:text-white transition-colors">
-                +973 3883 3990
-              </a>
-            </li>
-          </ul>
+              <li>
+                <a href="tel:+97338833990" className="hover:text-white transition-colors">
+                  +973 3883 3990
+                </a>
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
 

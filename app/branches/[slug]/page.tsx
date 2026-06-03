@@ -1,12 +1,12 @@
 import { notFound } from "next/navigation";
 import { Metadata } from "next";
-import { getBranchBySlug, getAllBranchSlugs } from "@/lib/branches";
+import { getBranchBySlug, getAllBranchSlugs, getMapEmbedUrl } from "@/lib/branches";
 import SectionHeading from "@/components/ui/SectionHeading";
 import TimingsTable from "@/components/ui/TimingsTable";
 import PricingTable from "@/components/ui/PricingTable";
 import AmenitiesList from "@/components/ui/AmenitiesList";
 import CTAButton from "@/components/ui/CTAButton";
-import { MapPin, Phone, AtSign } from "lucide-react";
+import { MapPin, Phone, AtSign, Clock, CreditCard } from "lucide-react";
 
 export async function generateStaticParams() {
   return getAllBranchSlugs().map((slug) => ({ slug }));
@@ -20,11 +20,12 @@ export async function generateMetadata({
   const { slug } = await params;
   const branch = getBranchBySlug(slug);
   if (!branch) return {};
+  const minPrice = branch.memberships.length
+    ? `Memberships from BD ${Math.min(...branch.memberships.map((m) => m.priceFrom))}.`
+    : "";
   return {
     title: branch.shortName,
-    description: `${branch.name} — ${branch.tagline}. Memberships from BD ${Math.min(
-      ...branch.memberships.map((m) => m.priceFrom)
-    )} at ${branch.locationLabel}.`,
+    description: `${branch.name} — ${branch.tagline}. ${minPrice} ${branch.locationLabel}, Bahrain.`,
   };
 }
 
@@ -37,7 +38,10 @@ export default async function BranchPage({
   const branch = getBranchBySlug(slug);
   if (!branch) notFound();
 
-  const minPrice = Math.min(...branch.memberships.map((m) => m.priceFrom));
+  const hasPrice = branch.memberships.length > 0;
+  const minPrice = hasPrice ? Math.min(...branch.memberships.map((m) => m.priceFrom)) : null;
+  const isLadies = branch.type === "ladies";
+  const mapSrc = getMapEmbedUrl(branch);
 
   return (
     <>
@@ -56,7 +60,7 @@ export default async function BranchPage({
               streetAddress: branch.contact.address,
               addressCountry: "BH",
             },
-            priceRange: `BHD ${minPrice}+`,
+            ...(minPrice ? { priceRange: `BHD ${minPrice}+` } : {}),
           }),
         }}
       />
@@ -65,19 +69,29 @@ export default async function BranchPage({
       <section className="relative min-h-[60vh] flex items-end bg-[#0D0D0D] overflow-hidden pt-20">
         <div
           className="absolute inset-0 bg-cover bg-center"
-          style={
-            branch.heroImage ? { backgroundImage: `url('${branch.heroImage}')` } : {}
-          }
+          style={branch.heroImage ? { backgroundImage: `url('${branch.heroImage}')` } : {}}
         />
         <div className="absolute inset-0 bg-gradient-to-t from-[#0D0D0D] via-[#0D0D0D]/60 to-transparent" />
 
         <div className="relative z-10 max-w-site mx-auto px-4 md:px-8 pb-16 w-full">
-          <span
-            className="font-montserrat font-bold text-xs uppercase tracking-[0.25em] text-[#CC1A1A] block mb-3"
-            style={{ fontFamily: "var(--font-montserrat, sans-serif)" }}
-          >
-            Al Nakheel Premium
-          </span>
+          <div className="flex items-center gap-3 mb-3">
+            <span
+              className="font-montserrat font-bold text-xs uppercase tracking-[0.25em] text-[#CC1A1A]"
+              style={{ fontFamily: "var(--font-montserrat, sans-serif)" }}
+            >
+              Al Nakheel Premium
+            </span>
+            {/* Mixed / Ladies badge */}
+            <span
+              className={`font-montserrat font-bold text-[10px] uppercase tracking-wider px-2.5 py-1 ${
+                isLadies
+                  ? "bg-[#CC1A1A]/20 text-[#CC1A1A] border border-[#CC1A1A]/40"
+                  : "bg-white/10 text-white/70 border border-white/20"
+              }`}
+            >
+              {isLadies ? "Ladies" : "Mixed"}
+            </span>
+          </div>
           <h1
             className="font-montserrat font-black text-5xl md:text-7xl uppercase tracking-[0.05em] text-white leading-none mb-4"
             style={{ fontFamily: "var(--font-montserrat, sans-serif)" }}
@@ -97,7 +111,7 @@ export default async function BranchPage({
           <p className="font-montserrat font-bold text-white text-sm uppercase tracking-wider">
             {branch.tagline}
           </p>
-          <div className="flex gap-4">
+          <div className="flex gap-4 flex-wrap">
             <a
               href={`tel:${branch.contact.phone}`}
               className="flex items-center gap-2 text-white text-sm font-semibold hover:text-white/80 transition-colors"
@@ -119,12 +133,7 @@ export default async function BranchPage({
       {/* Amenities */}
       <section className="bg-white py-20">
         <div className="max-w-site mx-auto px-4 md:px-8">
-          <SectionHeading
-            eyebrow="Facilities"
-            title="What's"
-            redWord="Inside"
-            light
-          />
+          <SectionHeading eyebrow="Facilities" title="What's" redWord="Inside" light />
           <div className="mt-10">
             <AmenitiesList amenities={branch.amenities} light />
           </div>
@@ -136,7 +145,22 @@ export default async function BranchPage({
         <div className="max-w-site mx-auto px-4 md:px-8">
           <SectionHeading eyebrow="Hours" title="Opening" redWord="Times" light />
           <div className="mt-10 max-w-lg">
-            <TimingsTable timings={branch.timings} light />
+            {branch.timings.length > 0 ? (
+              <TimingsTable timings={branch.timings} light />
+            ) : (
+              <div className="flex items-start gap-4 bg-white border-l-4 border-[#CC1A1A] p-6">
+                <Clock size={20} className="text-[#CC1A1A] shrink-0 mt-0.5" />
+                <div>
+                  <p className="font-montserrat font-bold text-sm uppercase tracking-wider text-[#0D0D0D] mb-1">
+                    Open During Regular Working Hours
+                  </p>
+                  <p className="text-[#6B6B6B] text-sm">
+                    Call <a href={`tel:${branch.contact.phone}`} className="text-[#CC1A1A] font-semibold">{branch.contact.phone}</a> or
+                    DM <a href={branch.contact.instagram} target="_blank" rel="noopener noreferrer" className="text-[#CC1A1A] font-semibold">{branch.contact.instagramHandle}</a> to confirm current hours.
+                  </p>
+                </div>
+              </div>
+            )}
           </div>
         </div>
       </section>
@@ -144,41 +168,57 @@ export default async function BranchPage({
       {/* Pricing */}
       <section className="bg-white py-20">
         <div className="max-w-site mx-auto px-4 md:px-8">
-          <SectionHeading
-            eyebrow="Memberships"
-            title="Join"
-            redWord={branch.shortName}
-            subtitle={`Starting from BD ${minPrice} per month. Flexible plans available.`}
-            light
-          />
-          <div className="mt-10">
-            <PricingTable memberships={branch.memberships} light />
-          </div>
+          {hasPrice ? (
+            <>
+              <SectionHeading
+                eyebrow="Memberships"
+                title="Join"
+                redWord={branch.shortName}
+                subtitle={`Starting from BD ${minPrice} per month. Flexible plans available.`}
+                light
+              />
+              <div className="mt-10">
+                <PricingTable memberships={branch.memberships} light />
+              </div>
+            </>
+          ) : (
+            <>
+              <SectionHeading
+                eyebrow="Memberships"
+                title="Join"
+                redWord={branch.shortName}
+                light
+              />
+              <div className="mt-10 flex items-start gap-4 bg-[#F5F4F2] border-l-4 border-[#CC1A1A] p-6 max-w-lg">
+                <CreditCard size={20} className="text-[#CC1A1A] shrink-0 mt-0.5" />
+                <div>
+                  <p className="font-montserrat font-bold text-sm uppercase tracking-wider text-[#0D0D0D] mb-1">
+                    Membership Rates Available on Request
+                  </p>
+                  <p className="text-[#6B6B6B] text-sm mb-4">
+                    Contact this branch directly for the latest membership pricing and current promotions.
+                  </p>
+                  <CTAButton label="Get in Touch" href="/contact" variant="primary" />
+                </div>
+              </div>
+            </>
+          )}
         </div>
       </section>
 
-      {/* Map placeholder */}
-      {branch.googleMapsEmbedUrl ? (
-        <section className="h-96">
-          <iframe
-            src={branch.googleMapsEmbedUrl}
-            width="100%"
-            height="100%"
-            style={{ border: 0 }}
-            allowFullScreen
-            loading="lazy"
-            referrerPolicy="no-referrer-when-downgrade"
-            title={`${branch.name} location map`}
-          />
-        </section>
-      ) : (
-        <section className="bg-[#2A2A2A] py-16">
-          <div className="max-w-site mx-auto px-4 md:px-8 flex flex-col items-center gap-4 text-center">
-            <MapPin size={32} className="text-[#CC1A1A]" />
-            <p className="text-white/60 text-sm font-inter">{branch.contact.address}</p>
-          </div>
-        </section>
-      )}
+      {/* Map — always shows, keyless embed from address */}
+      <section className="h-96">
+        <iframe
+          src={mapSrc}
+          width="100%"
+          height="100%"
+          style={{ border: 0 }}
+          allowFullScreen
+          loading="lazy"
+          referrerPolicy="no-referrer-when-downgrade"
+          title={`${branch.name} location map`}
+        />
+      </section>
 
       {/* CTA */}
       <section className="bg-[#0D0D0D] py-24">

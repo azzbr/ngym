@@ -5,10 +5,10 @@ import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 
 const stats = [
-  { value: "2+",   numeric: 2,  suffix: "+",   label: "Premium Branches",       isNumeric: true  },
-  { value: "5AM",  numeric: null, suffix: "",   label: "Opens Early Every Day",  isNumeric: false },
-  { value: "60",   numeric: 60, suffix: " BD",  label: "Starting Membership",    isNumeric: true  },
-  { value: "#1",   numeric: null, suffix: "",   label: "Premium Gym in Bahrain", isNumeric: false },
+  { value: "8",    numeric: 8,    suffix: "",    label: "Branches Island-Wide",   isNumeric: true  },
+  { value: "5AM",  numeric: null, suffix: "",    label: "Opens Early Every Day",  isNumeric: false },
+  { value: "60",   numeric: 60,   suffix: " BD", label: "Starting Membership",    isNumeric: true  },
+  { value: "#1",   numeric: null, suffix: "",    label: "Premium Gym in Bahrain", isNumeric: false },
 ];
 
 export default function StatsBar() {

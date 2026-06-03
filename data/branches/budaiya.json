@@ -1,0 +1,33 @@
+{
+  "id": "branch-budaiya",
+  "slug": "budaiya",
+  "name": "Al Nakheel Premium — Budaiya",
+  "shortName": "Budaiya",
+  "type": "mixed",
+  "locationLabel": "Budaiya Highway",
+  "tagline": "Elite Fitness on the Highway.",
+  "heroImage": "/images/branches/budaiya/hero.jpg",
+  "mapQuery": "Al Nakheel Premium Budaiya Highway Bahrain",
+  "pendingData": true,
+  "contact": {
+    "phone": "+97338833663",
+    "whatsapp": "+97338833663",
+    "instagram": "https://instagram.com/alnakheelpremium_budaiya",
+    "instagramHandle": "@alnakheelpremium_budaiya",
+    "address": "Budaiya Highway, Northern Governorate, Kingdom of Bahrain"
+  },
+  "googleMapsEmbedUrl": "",
+  "timings": [],
+  "memberships": [],
+  "amenities": [
+    { "icon": "Dumbbell",      "label": "Free Weights Zone" },
+    { "icon": "Activity",      "label": "Cardio Area" },
+    { "icon": "Users",         "label": "Group Classes" },
+    { "icon": "User",          "label": "Personal Trainers" },
+    { "icon": "ParkingSquare", "label": "Free Parking" },
+    { "icon": "Wifi",          "label": "High-Speed WiFi" }
+  ],
+  "gallery": [],
+  "isNew": false,
+  "comingSoon": false
+}
