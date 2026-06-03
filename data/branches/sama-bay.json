@@ -1,0 +1,33 @@
+{
+  "id": "branch-samabay",
+  "slug": "sama-bay",
+  "name": "Al Nakheel Premium — Sama Bay",
+  "shortName": "Sama Bay",
+  "type": "mixed",
+  "locationLabel": "Sama Bay, Al Hidd",
+  "tagline": "Premium Fitness at the Bay.",
+  "heroImage": "/images/branches/sama-bay/hero.jpg",
+  "mapQuery": "Al Nakheel Premium Sama Bay Al Hidd Muharraq Bahrain",
+  "pendingData": true,
+  "contact": {
+    "phone": "+97366787871",
+    "whatsapp": "+97366787871",
+    "instagram": "https://instagram.com/alnakheelpremium_samabay",
+    "instagramHandle": "@alnakheelpremium_samabay",
+    "address": "Building 4181, Road 140, Al Hidd, Muharraq, Kingdom of Bahrain"
+  },
+  "googleMapsEmbedUrl": "",
+  "timings": [],
+  "memberships": [],
+  "amenities": [
+    { "icon": "Dumbbell",      "label": "Free Weights Zone" },
+    { "icon": "Activity",      "label": "Cardio Area" },
+    { "icon": "Users",         "label": "Group Classes" },
+    { "icon": "User",          "label": "Personal Trainers" },
+    { "icon": "ParkingSquare", "label": "Free Parking" },
+    { "icon": "Wifi",          "label": "High-Speed WiFi" }
+  ],
+  "gallery": [],
+  "isNew": false,
+  "comingSoon": false
+}

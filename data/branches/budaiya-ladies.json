@@ -1,0 +1,34 @@
+{
+  "id": "branch-budaiyaladies",
+  "slug": "budaiya-ladies",
+  "name": "Al Nakheel Premium Ladies — Budaiya",
+  "shortName": "Budaiya Ladies",
+  "type": "ladies",
+  "locationLabel": "Budaiya Highway",
+  "tagline": "Exclusively for Women. Unapologetically Premium.",
+  "heroImage": "/images/branches/budaiya-ladies/hero.jpg",
+  "mapQuery": "Al Nakheel Premium Ladies Budaiya Bahrain",
+  "pendingData": true,
+  "contact": {
+    "phone": "+97338833663",
+    "whatsapp": "+97338833663",
+    "instagram": "https://instagram.com/alnakheelladies_budaiya",
+    "instagramHandle": "@alnakheelladies_budaiya",
+    "address": "Budaiya Highway, Northern Governorate, Kingdom of Bahrain"
+  },
+  "googleMapsEmbedUrl": "",
+  "timings": [],
+  "memberships": [],
+  "amenities": [
+    { "icon": "Dumbbell",      "label": "Free Weights Zone" },
+    { "icon": "Activity",      "label": "Cardio Area" },
+    { "icon": "Users",         "label": "Group Classes" },
+    { "icon": "User",          "label": "Personal Trainers" },
+    { "icon": "ShieldCheck",   "label": "Ladies-Only Facility" },
+    { "icon": "ParkingSquare", "label": "Free Parking" },
+    { "icon": "Wifi",          "label": "High-Speed WiFi" }
+  ],
+  "gallery": [],
+  "isNew": false,
+  "comingSoon": false
+}

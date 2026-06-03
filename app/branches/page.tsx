@@ -1,12 +1,12 @@
 import { Metadata } from "next";
 import { getAllBranches } from "@/lib/branches";
-import BranchCard from "@/components/ui/BranchCard";
 import SectionHeading from "@/components/ui/SectionHeading";
+import BranchesFilter from "@/components/ui/BranchesFilter";
 
 export const metadata: Metadata = {
   title: "Our Branches",
   description:
-    "Find your nearest Al Nakheel Premium gym in Bahrain. Al Liwan, Bahrain Bay, and more locations.",
+    "Find your nearest Al Nakheel Premium gym in Bahrain. 8 locations island-wide — mixed and ladies-only facilities.",
 };
 
 export default function BranchesPage() {
@@ -19,14 +19,11 @@ export default function BranchesPage() {
           eyebrow="All Locations"
           title="Our"
           redWord="Branches"
-          subtitle="Each branch is a full-scale premium facility. All the equipment, trainers, and classes you need."
+          subtitle="8 premium facilities across Bahrain. Mixed and ladies-only options available island-wide."
           alignment="center"
         />
-
-        <div className="mt-16 grid grid-cols-1 md:grid-cols-2 gap-6">
-          {branches.map((branch) => (
-            <BranchCard key={branch.id} branch={branch} />
-          ))}
+        <div className="mt-16">
+          <BranchesFilter branches={branches} />
         </div>
       </div>
     </div>

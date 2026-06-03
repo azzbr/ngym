@@ -1,0 +1,34 @@
+{
+  "id": "branch-muharraqladies",
+  "slug": "muharraq-ladies",
+  "name": "Al Nakheel Premium Ladies — Muharraq",
+  "shortName": "Muharraq Ladies",
+  "type": "ladies",
+  "locationLabel": "Muharraq",
+  "tagline": "Premium Fitness for the Women of Muharraq.",
+  "heroImage": "/images/branches/muharraq-ladies/hero.jpg",
+  "mapQuery": "Al Nakheel Premium Ladies Muharraq Road 1531 Bahrain",
+  "pendingData": true,
+  "contact": {
+    "phone": "+97338833663",
+    "whatsapp": "+97338833663",
+    "instagram": "https://instagram.com/alnakheelladies_muharraq",
+    "instagramHandle": "@alnakheelladies_muharraq",
+    "address": "Shop 3, Building 1112, Road 1531, Muharraq, Kingdom of Bahrain"
+  },
+  "googleMapsEmbedUrl": "",
+  "timings": [],
+  "memberships": [],
+  "amenities": [
+    { "icon": "Dumbbell",      "label": "Free Weights Zone" },
+    { "icon": "Activity",      "label": "Cardio Area" },
+    { "icon": "Users",         "label": "Group Classes" },
+    { "icon": "User",          "label": "Personal Trainers" },
+    { "icon": "ShieldCheck",   "label": "Ladies-Only Facility" },
+    { "icon": "ParkingSquare", "label": "Free Parking" },
+    { "icon": "Wifi",          "label": "High-Speed WiFi" }
+  ],
+  "gallery": [],
+  "isNew": false,
+  "comingSoon": false
+}

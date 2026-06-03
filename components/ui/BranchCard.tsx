@@ -9,13 +9,15 @@ interface Props {
 export default function BranchCard({ branch }: Props) {
   const firstSection = branch.timings[0];
   const weekdayTiming = firstSection?.days[0];
+  const hasPrice = branch.memberships.length > 0;
+  const isLadies = branch.type === "ladies";
 
   return (
     <Link
       href={`/branches/${branch.slug}`}
       className="group block bg-[#F5F4F2] border-l-4 border-transparent hover:border-[#CC1A1A] transition-all duration-300 hover:-translate-y-1"
     >
-      {/* Image placeholder */}
+      {/* Image */}
       <div className="aspect-[3/2] bg-[#2A2A2A] overflow-hidden relative">
         {branch.heroImage ? (
           // eslint-disable-next-line @next/next/no-img-element
@@ -34,13 +36,28 @@ export default function BranchCard({ branch }: Props) {
             </span>
           </div>
         )}
-        {branch.isNew && (
-          <span className="absolute top-4 left-4 bg-[#CC1A1A] text-white text-xs font-montserrat font-bold uppercase tracking-wider px-3 py-1">
-            New
+
+        {/* Top-left badges */}
+        <div className="absolute top-4 left-4 flex gap-2">
+          {/* Mixed / Ladies badge */}
+          <span
+            className={`text-[10px] font-montserrat font-bold uppercase tracking-wider px-2.5 py-1 ${
+              isLadies
+                ? "bg-[#CC1A1A] text-white"
+                : "bg-[#0D0D0D]/80 text-white"
+            }`}
+          >
+            {isLadies ? "Ladies" : "Mixed"}
           </span>
-        )}
+          {branch.isNew && (
+            <span className="bg-white text-[#0D0D0D] text-[10px] font-montserrat font-bold uppercase tracking-wider px-2.5 py-1">
+              New
+            </span>
+          )}
+        </div>
+
         {branch.comingSoon && (
-          <span className="absolute top-4 left-4 bg-[#0D0D0D] text-white text-xs font-montserrat font-bold uppercase tracking-wider px-3 py-1">
+          <span className="absolute top-4 right-4 bg-[#0D0D0D]/80 text-white text-[10px] font-montserrat font-bold uppercase tracking-wider px-2.5 py-1">
             Coming Soon
           </span>
         )}
@@ -59,19 +76,30 @@ export default function BranchCard({ branch }: Props) {
           <span>{branch.locationLabel}</span>
         </div>
 
-        {weekdayTiming && (
+        {weekdayTiming ? (
           <div className="flex items-center gap-1.5 text-[#6B6B6B] text-sm mb-5">
             <Clock size={14} className="text-[#CC1A1A]" />
             <span>
               {firstSection.label}: {weekdayTiming.open} – {weekdayTiming.close}
             </span>
           </div>
+        ) : (
+          <div className="flex items-center gap-1.5 text-[#6B6B6B] text-sm mb-5">
+            <Clock size={14} className="text-[#CC1A1A]" />
+            <span>Open during regular working hours</span>
+          </div>
         )}
 
         <div className="flex items-center justify-between">
-          <span className="text-xs font-montserrat font-bold uppercase tracking-wider text-[#0D0D0D]">
-            From BD {Math.min(...branch.memberships.map((m) => m.priceFrom))} / mo
-          </span>
+          {hasPrice ? (
+            <span className="text-xs font-montserrat font-bold uppercase tracking-wider text-[#0D0D0D]">
+              From BD {Math.min(...branch.memberships.map((m) => m.priceFrom))} / mo
+            </span>
+          ) : (
+            <span className="text-xs font-montserrat font-bold uppercase tracking-wider text-[#CC1A1A]">
+              Contact for rates
+            </span>
+          )}
           <ArrowRight
             size={18}
             className="text-[#CC1A1A] group-hover:translate-x-1 transition-transform"
