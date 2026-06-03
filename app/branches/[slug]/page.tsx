@@ -8,6 +8,7 @@ import PricingTable from "@/components/ui/PricingTable";
 import AmenitiesList from "@/components/ui/AmenitiesList";
 import CTAButton from "@/components/ui/CTAButton";
 import { MapPin, Phone, AtSign, Clock, CreditCard } from "lucide-react";
+import GalleryGrid from "@/components/ui/GalleryGrid";
 
 export async function generateStaticParams() {
   return getAllBranchSlugs().map((slug) => ({ slug }));
@@ -140,6 +141,18 @@ export default async function BranchPage({
           </div>
         </div>
       </section>
+
+      {/* Gallery — only when photos exist */}
+      {branch.gallery.length > 0 && (
+        <section className="bg-[#0D0D0D] py-20">
+          <div className="max-w-site mx-auto px-4 md:px-8">
+            <SectionHeading eyebrow="Gallery" title="Inside" redWord={branch.shortName} />
+            <div className="mt-10">
+              <GalleryGrid images={branch.gallery} branchName={branch.shortName} />
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* Timings */}
       <section className="bg-[#F5F4F2] py-20">
