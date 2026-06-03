@@ -38,6 +38,8 @@ export default function Navbar() {
         <div className="max-w-site mx-auto px-4 md:px-8 h-20 flex items-center justify-between">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-3 group">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src="/brand/logo-mark.png" alt="Al Nakheel Premium" className="h-9 w-auto" />
             <span
               className="font-montserrat font-black text-white uppercase tracking-[0.15em] text-lg leading-none"
               style={{ fontFamily: "var(--font-montserrat, sans-serif)" }}
@@ -98,15 +100,19 @@ export default function Navbar() {
       {open && (
         <div className="fixed inset-0 z-[100] bg-[#0D0D0D] flex flex-col p-8">
           <div className="flex justify-between items-center mb-16">
-            <span
-              className="font-montserrat font-black text-white uppercase tracking-[0.15em] text-lg"
-              style={{ fontFamily: "var(--font-montserrat, sans-serif)" }}
-            >
-              ALNAKHEEL
-              <span className="block font-light text-xs tracking-[0.35em] mt-0.5">
-                PREMIUM
+            <div className="flex items-center gap-3">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src="/brand/logo-mark.png" alt="Al Nakheel Premium" className="h-9 w-auto" />
+              <span
+                className="font-montserrat font-black text-white uppercase tracking-[0.15em] text-lg"
+                style={{ fontFamily: "var(--font-montserrat, sans-serif)" }}
+              >
+                ALNAKHEEL
+                <span className="block font-light text-xs tracking-[0.35em] mt-0.5">
+                  PREMIUM
+                </span>
               </span>
-            </span>
+            </div>
             <button
               onClick={() => setOpen(false)}
               className="text-white p-2"

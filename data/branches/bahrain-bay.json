@@ -6,7 +6,7 @@
   "type": "mixed",
   "locationLabel": "The Park, Bahrain Bay",
   "tagline": "Train With a View. Live at the Bay.",
-  "heroImage": "/images/branches/bahrain-bay/hero.jpg",
+  "heroImage": "/images/branches/bahrain-bay/10.jpg",
   "mapQuery": "Al Nakheel Premium The Park Bahrain Bay Bahrain",
   "pendingData": false,
   "contact": {
@@ -46,7 +46,18 @@
     { "icon": "ParkingSquare", "label": "Free Parking" },
     { "icon": "Wifi",          "label": "High-Speed WiFi" }
   ],
-  "gallery": [],
+  "gallery": [
+    { "url": "/images/branches/bahrain-bay/10.jpg", "tag": "interior",  "alt": "Al Nakheel Premium Bahrain Bay at dusk" },
+    { "url": "/images/branches/bahrain-bay/2.jpg",  "tag": "interior",  "alt": "Main gym floor at night" },
+    { "url": "/images/branches/bahrain-bay/1.jpg",  "tag": "interior",  "alt": "Cardio and strength floor" },
+    { "url": "/images/branches/bahrain-bay/6.jpg",  "tag": "classes",   "alt": "Functional turf and motivation wall" },
+    { "url": "/images/branches/bahrain-bay/9.jpg",  "tag": "equipment", "alt": "Free weights by the bay windows" },
+    { "url": "/images/branches/bahrain-bay/4.jpg",  "tag": "equipment", "alt": "Pin-loaded machines" },
+    { "url": "/images/branches/bahrain-bay/8.jpg",  "tag": "equipment", "alt": "Machine area by the windows" },
+    { "url": "/images/branches/bahrain-bay/3.jpg",  "tag": "interior",  "alt": "Bahrain Bay entrance" },
+    { "url": "/images/branches/bahrain-bay/5.jpg",  "tag": "interior",  "alt": "Waterfront facility exterior" },
+    { "url": "/images/branches/bahrain-bay/7.jpg",  "tag": "interior",  "alt": "Floor-to-ceiling glass facade" }
+  ],
   "isNew": false,
   "comingSoon": false
 }
