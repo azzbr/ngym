@@ -19,10 +19,12 @@ export default function ContactPage() {
       <section className="bg-[#0D0D0D] pt-36 pb-20">
         <div className="max-w-site mx-auto px-4 md:px-8">
           <SectionHeading
+            as="h1"
             eyebrow="Get In Touch"
             title="Contact"
             redWord="Us"
             subtitle="Reach out to your nearest branch directly, or use the form below and we'll get back to you."
+            alignment="center"
           />
         </div>
       </section>

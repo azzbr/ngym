@@ -18,20 +18,46 @@
 
 ---
 
+## 1a. Implementation Status (LIVE)
+
+The site is **built and deployed to Vercel** (`main` branch auto-deploys). This section reflects the actual codebase — keep it current.
+
+**Built & working:**
+- All pages: Home, Branches (+ dynamic `/branches/[slug]`), Memberships, Gallery, About, Contact, Privacy, Terms
+- **8 branches** modeled as separate pages/cards (4 mixed + 4 ladies) — see §11
+- Branch data lives in `data/branches/*.json`, typed + loaded via `lib/branches.ts`
+- **Keyless Google Maps** — every branch renders a live map auto-built from its address (`getMapEmbedUrl` in `lib/branches.ts`); no API key. Override per-branch via `googleMapsEmbedUrl`.
+- Premium motion layer: Lenis smooth scroll (GSAP-ticker driven), GSAP ScrollTrigger reveals, framer-motion entrances/parallax, custom red cursor (desktop only)
+- Gallery: Swiper showcase carousel + filterable grid + `yet-another-react-lightbox`
+- SEO: per-page metadata, `as="h1"` page titles, auto `sitemap.ts` + `robots.ts`, `HealthClub` JSON-LD per branch
+- `formatPhone()` util normalizes all displayed numbers to `+973 XXXX XXXX`
+
+**Deferred / TODO:**
+- **Contact form** — currently visual-only; on submit it shows a "call/WhatsApp us" prompt (no broken reload). **To do later:** wire Next.js Server Action + Resend on the real domain for actual email delivery.
+- **Real media** — hero video/image (`/public/videos/hero.mp4`, `/public/images/hero-bg.jpg`) and branch hero + gallery photos are placeholders.
+- **6 of 8 branches** lack verified hours/pricing/phone (`pendingData: true`) — see §11.
+- **Sanity CMS** — not yet integrated; data is local JSON for now.
+
+---
+
 ## 2. Tech Stack Recommendations
 
-### Recommended Stack: Next.js + Tailwind CSS + Sanity CMS
+### Actual Stack (as built) + planned additions
 
-| Layer | Choice | Reason |
+| Layer | Choice | Status |
 |---|---|---|
-| Framework | Next.js 14 (App Router) | SSR/SSG for SEO, fast page loads, file-based routing |
-| Styling | Tailwind CSS | Utility-first, consistent design tokens, fast iteration |
-| CMS | Sanity.io | Structured content, branch-specific data schemas, real-time preview |
-| Hosting | Vercel | Zero-config Next.js deployment, edge CDN |
-| Maps | Google Maps Embed API | Branch-specific embedded maps |
-| Forms | React Hook Form + Resend | Lightweight inquiry forms with email delivery |
-| Analytics | Vercel Analytics + Google Analytics 4 | SEO and traffic insights |
-| Image CDN | Next.js Image + Sanity CDN | Automatic optimization, lazy loading |
+| Framework | **Next.js 16 (App Router, Turbopack)** | ✅ in use |
+| Language | TypeScript | ✅ in use |
+| Styling | Tailwind CSS v4 + design tokens (`tailwind.config.ts`) | ✅ in use |
+| Animation | framer-motion, GSAP + ScrollTrigger, Lenis smooth scroll | ✅ in use |
+| Carousel/Lightbox | Swiper, yet-another-react-lightbox | ✅ in use |
+| Icons | lucide-react | ✅ in use |
+| Maps | Google Maps **keyless embed** (`?q=address&output=embed`) | ✅ in use |
+| Hosting | Vercel (auto-deploy from `main`) | ✅ in use |
+| Data | Local JSON (`data/branches/*.json`) | ✅ in use |
+| Forms | Next.js Server Action + Resend | ⏳ planned (form is visual-only now) |
+| CMS | Sanity.io | ⏳ planned (not yet integrated) |
+| Analytics | Vercel Analytics + GA4 | ⏳ planned |
 
 ### Why Not WordPress/Webflow?
 - **Webflow** is viable for a purely marketing site but limits custom data modeling for multi-branch schemas
@@ -169,7 +195,14 @@ All components are written in React and styled with Tailwind. Components are org
 
 ### Branch Schema (Sanity or JSON)
 
-The schema supports a `timings` array with an optional `section` field to handle branches that have separate mix/ladies floors with different hours (e.g., Al Liwan).
+The schema supports a `timings` array with an optional `section` field for branch-specific hour blocks.
+
+**As-built additions to the schema** (see `lib/branches.ts` for the canonical type):
+- `type: "mixed" | "ladies"` — drives the card/hero badge and the All/Mixed/Ladies filter on `/branches`.
+- `mapQuery: string` — address/place string used to build the keyless Google Map. `googleMapsEmbedUrl` (string, optional) overrides it with an exact embed.
+- `pendingData: boolean` — when `true`, the branch shows "contact for rates" / "call to confirm hours" instead of empty pricing/timings tables, and the card shows "Contact for rates".
+
+> Note: the mix/ladies split is now modeled as **separate branch records** (each with its own page, IG, address), not as two `section`s inside one branch. The `section` field remains for any single branch that needs multiple hour blocks.
 
 ---
 
@@ -782,42 +815,53 @@ A subtle SVG concrete texture overlay at `4% opacity` can be applied to dark sec
 
 ## 11. Branch Status Register
 
-| # | Branch Name | Slug | Status | Missing Data |
+8 branches, each its own page/card (`type: "mixed" | "ladies"`). Branches with
+`pendingData: true` show "contact for rates / call to confirm hours" until verified
+data is supplied. Every branch already has a live keyless map from its address.
+
+| # | Branch | Slug | Type | Status |
 |---|---|---|---|---|
-| 1 | Al Nakheel Premium — Al Liwan | `al-liwan` | **Data complete** | Google Maps embed URL, hero + gallery images |
-| 2 | Al Nakheel Premium — Bahrain Bay | `bahrain-bay` | **Data complete** | Google Maps embed URL, hero + gallery images |
-| 3 | TBD | TBD | Pending | All data |
-| 4 | TBD | TBD | Pending | All data |
-| 5+ | TBD | TBD | Pending | All data |
+| 1 | Al Nakheel Premium — Al Liwan | `al-liwan` | mixed | **Complete** (hours, pricing, phone, IG) |
+| 2 | Al Nakheel Premium Ladies — Al Liwan | `al-liwan-ladies` | ladies | **Complete** (hours, pricing, IG; phone = main line) |
+| 3 | Al Nakheel Premium — Bahrain Bay | `bahrain-bay` | mixed | **Complete** (hours, pricing, phone, IG) |
+| 4 | Al Nakheel Premium — Sama Bay | `sama-bay` | mixed | Pending hours + pricing (addr + IG researched) |
+| 5 | Al Nakheel Premium Ladies — Riffa | `riffa-ladies` | ladies | Pending hours + pricing + exact address |
+| 6 | Al Nakheel Premium — Budaiya | `budaiya` | mixed | Pending hours + pricing |
+| 7 | Al Nakheel Premium Ladies — Budaiya | `budaiya-ladies` | ladies | Pending hours + pricing |
+| 8 | Al Nakheel Premium Ladies — Muharraq | `muharraq-ladies` | ladies | Pending hours + pricing (addr + IG confirmed) |
+
+> Inferred (unverified) fields on pending branches: Instagram handles follow the
+> pattern `@alnakheelpremium_<place>` (mixed) / `@alnakheelladies_<place>` (ladies);
+> phone defaults to the main line `+973 3883 3663`. Confirm and flip `pendingData` to `false`.
 
 ### Branch Data Checklist (per branch, before go-live)
 
-- [ ] Branch name, slug, city, address
-- [ ] Hero image (min 1920×1080px)
-- [ ] Gallery images (minimum 6 — mix of interior, equipment, classes)
-- [ ] Full timings (all 7 days, per section if ladies/mix are separate)
+- [ ] Verified phone (with country code +973) + WhatsApp
+- [ ] Verified Instagram handle
+- [ ] Full timings (Sat–Thu + Friday; ladies branches are separate records now)
 - [ ] All membership tiers with prices in BHD
-- [ ] Phone number (with country code +973)
-- [ ] Instagram handle
-- [ ] Google Maps embed URL
-- [ ] WhatsApp number
+- [ ] Hero image (min 1920×1080px) → `/public/images/branches/<slug>/hero.jpg`
+- [ ] Gallery images (6+ — interior / equipment / classes) added to the JSON `gallery[]`
+- [ ] (Optional) exact `googleMapsEmbedUrl` to override the keyless map
+- [ ] Flip `pendingData` to `false`
 
-### Pricing Quick Reference
+### Pricing Quick Reference (verified branches)
 
-| Tier | Al Liwan | Bahrain Bay |
-|---|---|---|
-| Monthly | BD 70 | BD 60 |
-| 3 Months | BD 190 | BD 165 |
-| 6 Months | BD 290 | BD 255 |
-| Annual | BD 420 | BD 350 |
-| Couples Annual | BD 737 | BD 690 |
-
-### Timings Quick Reference
-
-| Branch | Sat–Thu (Mix) | Sat–Thu (Ladies) | Friday |
+| Tier | Al Liwan | Al Liwan Ladies | Bahrain Bay |
 |---|---|---|---|
-| Al Liwan | 5:00 AM – 11:00 PM | 6:00 AM – 10:00 PM | 8:00 AM – 8:00 PM |
-| Bahrain Bay | 5:00 AM – 10:00 PM | — (mixed only) | 8:00 AM – 8:00 PM |
+| Monthly | BD 70 | BD 70 | BD 60 |
+| 3 Months | BD 190 | BD 190 | BD 165 |
+| 6 Months | BD 290 | BD 290 | BD 255 |
+| Annual | BD 420 | BD 420 | BD 350 |
+| Couples Annual | BD 737 | — | BD 690 |
+
+### Timings Quick Reference (verified branches)
+
+| Branch | Sat–Thu | Friday |
+|---|---|---|
+| Al Liwan (mixed) | 5:00 AM – 11:00 PM | 8:00 AM – 8:00 PM |
+| Al Liwan Ladies | 6:00 AM – 10:00 PM | 8:00 AM – 8:00 PM |
+| Bahrain Bay | 5:00 AM – 10:00 PM | 8:00 AM – 8:00 PM |
 
 ---
 

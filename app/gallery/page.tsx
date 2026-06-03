@@ -19,6 +19,7 @@ export default function GalleryPage() {
       <section className="pt-36 pb-16">
         <div className="max-w-site mx-auto px-4 md:px-8">
           <SectionHeading
+            as="h1"
             eyebrow="Gallery"
             title="Inside"
             redWord="Al Nakheel"

@@ -16,6 +16,7 @@ export default function BranchesPage() {
     <div className="bg-[#0D0D0D] min-h-screen pt-32 pb-24">
       <div className="max-w-site mx-auto px-4 md:px-8">
         <SectionHeading
+          as="h1"
           eyebrow="All Locations"
           title="Our"
           redWord="Branches"
