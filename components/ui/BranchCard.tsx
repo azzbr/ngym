@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { MapPin, Clock, ArrowRight } from "lucide-react";
 import type { Branch } from "@/lib/branches";
 
@@ -20,11 +21,13 @@ export default function BranchCard({ branch }: Props) {
       {/* Image */}
       <div className="aspect-[3/2] bg-[#2A2A2A] overflow-hidden relative">
         {branch.heroImage ? (
-          // eslint-disable-next-line @next/next/no-img-element
-          <img
+          <Image
             src={branch.heroImage}
             alt={branch.name}
-            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+            fill
+            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+            style={{ objectFit: "cover" }}
+            className="group-hover:scale-105 transition-transform duration-500"
           />
         ) : (
           <div className="w-full h-full flex items-center justify-center">

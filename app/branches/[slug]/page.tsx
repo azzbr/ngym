@@ -1,5 +1,6 @@
 import { notFound } from "next/navigation";
 import { Metadata } from "next";
+import Image from "next/image";
 import { getBranchBySlug, getAllBranchSlugs, getMapEmbedUrl } from "@/lib/branches";
 import { formatPhone } from "@/lib/utils";
 import SectionHeading from "@/components/ui/SectionHeading";
@@ -69,10 +70,15 @@ export default async function BranchPage({
 
       {/* Hero */}
       <section className="relative min-h-[60vh] flex items-end bg-[#0D0D0D] overflow-hidden pt-20">
-        <div
-          className="absolute inset-0 bg-cover bg-center"
-          style={branch.heroImage ? { backgroundImage: `url('${branch.heroImage}')` } : {}}
-        />
+        {branch.heroImage && (
+          <Image
+            src={branch.heroImage}
+            alt={branch.name}
+            fill
+            priority
+            style={{ objectFit: "cover" }}
+          />
+        )}
         <div className="absolute inset-0 bg-gradient-to-t from-[#0D0D0D] via-[#0D0D0D]/60 to-transparent" />
 
         <div className="relative z-10 max-w-site mx-auto px-4 md:px-8 pb-16 w-full">

@@ -1,6 +1,7 @@
 "use client";
 
 import { motion, type Variants } from "framer-motion";
+import Image from "next/image";
 import CTAButton from "@/components/ui/CTAButton";
 import { useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
@@ -31,21 +32,22 @@ export default function HeroSection() {
     >
       {/* Video background — place /public/videos/hero.mp4 to activate */}
       <motion.div className="absolute inset-0" style={{ y: bgY }}>
+        <Image
+          src="/images/hero-bg.jpg"
+          alt=""
+          fill
+          priority
+          style={{ objectFit: "cover" }}
+        />
         <video
           autoPlay
           muted
           loop
           playsInline
           className="absolute inset-0 w-full h-full object-cover"
-          poster="/images/hero-bg.jpg"
         >
           <source src="/videos/hero.mp4" type="video/mp4" />
         </video>
-        {/* Fallback image when no video */}
-        <div
-          className="absolute inset-0 bg-cover bg-center"
-          style={{ backgroundImage: "url('/images/hero-bg.jpg')" }}
-        />
       </motion.div>
 
       {/* Gradient overlay — heavier at bottom for text legibility */}
