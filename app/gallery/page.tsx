@@ -55,10 +55,10 @@ export default function GalleryPage() {
         </>
       ) : (
         /* Coming soon state */
-        <section className="pb-32">
+        <section className="pb-32 overflow-x-hidden">
           <div className="max-w-site mx-auto px-4 md:px-8 flex flex-col items-center gap-8 text-center">
             <span
-              className="font-bebas text-[6rem] md:text-[10rem] text-white/5 leading-none select-none"
+              className="font-bebas text-[3.5rem] sm:text-[6rem] md:text-[10rem] text-white/5 leading-none select-none whitespace-nowrap"
               style={{ fontFamily: "var(--font-bebas, cursive)" }}
             >
               COMING SOON
@@ -68,14 +68,14 @@ export default function GalleryPage() {
               <p className="text-white/40 text-base max-w-md leading-relaxed mb-6">
                 Branch photo galleries are being uploaded. In the meantime, follow each branch on Instagram for the latest.
               </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <div className="flex flex-wrap gap-3 justify-center max-w-3xl mx-auto">
                 {branches.map((b) => (
                   <a
                     key={b.id}
                     href={b.contact.instagram}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="font-montserrat font-bold text-xs uppercase tracking-wider text-white border border-white/20 px-6 py-3 hover:border-[#CC1A1A] hover:text-[#CC1A1A] transition-colors"
+                    className="font-montserrat font-bold text-[11px] uppercase tracking-wider text-white border border-white/20 px-4 py-2.5 hover:border-[#CC1A1A] hover:text-[#CC1A1A] transition-colors"
                     style={{ fontFamily: "var(--font-montserrat, sans-serif)" }}
                   >
                     {b.contact.instagramHandle}
