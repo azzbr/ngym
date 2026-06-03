@@ -17,6 +17,8 @@ export default function Footer() {
       <div className="max-w-site mx-auto px-4 md:px-8 py-16 grid grid-cols-1 md:grid-cols-4 gap-12">
         {/* Brand */}
         <div className="md:col-span-1">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src="/brand/logo-mark.png" alt="Al Nakheel Premium" className="h-14 w-auto mb-4" />
           <span
             className="font-montserrat font-black text-white uppercase tracking-[0.15em] text-lg leading-none block mb-4"
             style={{ fontFamily: "var(--font-montserrat, sans-serif)" }}
