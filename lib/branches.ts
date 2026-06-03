@@ -3,7 +3,7 @@ import alLiwanLadies from "@/data/branches/al-liwan-ladies.json";
 import bahrainBay from "@/data/branches/bahrain-bay.json";
 import samaBay from "@/data/branches/sama-bay.json";
 import riffaLadies from "@/data/branches/riffa-ladies.json";
-import budaiya from "@/data/branches/budaiya.json";
+import jannusan from "@/data/branches/jannusan.json";
 import budaiyaLadies from "@/data/branches/budaiya-ladies.json";
 import muharraqLadies from "@/data/branches/muharraq-ladies.json";
 
@@ -73,7 +73,7 @@ const branches: Branch[] = [
   bahrainBay as Branch,
   samaBay as Branch,
   riffaLadies as Branch,
-  budaiya as Branch,
+  jannusan as Branch,
   budaiyaLadies as Branch,
   muharraqLadies as Branch,
 ];
