@@ -3,6 +3,21 @@ import { getAllBranches } from "@/lib/branches";
 import SectionHeading from "@/components/ui/SectionHeading";
 import GalleryGrid from "@/components/ui/GalleryGrid";
 import BranchGalleryShowcase from "@/components/sections/BranchGalleryShowcase";
+import type { GalleryImage } from "@/lib/branches";
+
+// Premium brand & cinematic renders (not tied to a single branch)
+const SHOWCASE: GalleryImage[] = [
+  { url: "/images/showcase/bb-fresh-sharp-straight-2-2560.webp",        tag: "showcase", alt: "Bahrain Bay branch glowing at night" },
+  { url: "/images/showcase/bb-higgsfield-2-goldenhour-notext-2560.webp", tag: "showcase", alt: "Bahrain Bay branch at golden hour" },
+  { url: "/images/showcase/bb-higgsfield-3-bluehour-notext-2560.webp",   tag: "showcase", alt: "Bahrain Bay branch at blue hour" },
+  { url: "/images/showcase/bb-higgsfield-4-mono-2560.webp",              tag: "showcase", alt: "Bahrain Bay branch in dramatic black and white" },
+  { url: "/images/showcase/bb-higgsfield-1-poster-2560.webp",            tag: "showcase", alt: "Al Nakheel Premium Bahrain Bay brand poster" },
+  { url: "/images/showcase/bb-magnific-3-camera-2560.webp",              tag: "showcase", alt: "Bahrain Bay branch, alternate angle" },
+  { url: "/images/showcase/magnific-1-upscale4x-2560.webp",              tag: "showcase", alt: "Al Liwan entrance illuminated at night" },
+  { url: "/images/showcase/magnific-2-relight-2560.webp",                tag: "showcase", alt: "Al Liwan exterior, dramatic relight" },
+  { url: "/images/showcase/higgsfield-2-goldenhour-notext-2560.webp",    tag: "showcase", alt: "Al Liwan branch at golden hour" },
+  { url: "/images/showcase/higgsfield-1-poster-2560.webp",              tag: "showcase", alt: "Al Nakheel Premium Al Liwan brand poster" },
+];
 
 export const metadata: Metadata = {
   title: "Gallery",
@@ -26,6 +41,22 @@ export default function GalleryPage() {
             subtitle="A look inside our premium facilities across Bahrain."
             alignment="center"
           />
+        </div>
+      </section>
+
+      {/* Showcase — premium brand & cinematic renders */}
+      <section className="pb-8">
+        <div className="max-w-site mx-auto px-4 md:px-8">
+          <h2
+            className="font-montserrat font-black text-2xl uppercase tracking-wider text-white mb-8 border-l-4 border-[#CC1A1A] pl-4"
+            style={{ fontFamily: "var(--font-montserrat, sans-serif)" }}
+          >
+            Showcase
+            <span className="block font-light text-sm tracking-widest text-white/40 mt-1">
+              Premium brand &amp; cinematic shots
+            </span>
+          </h2>
+          <GalleryGrid images={SHOWCASE} branchName="Al Nakheel Premium" />
         </div>
       </section>
 
