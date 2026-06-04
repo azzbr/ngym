@@ -6,7 +6,7 @@
   "type": "mixed",
   "locationLabel": "Jannusan, Budaiya",
   "tagline": "Elite Fitness on the Highway.",
-  "heroImage": "/images/branches/jannusan/2.jpg",
+  "heroImage": "/images/branches/jannusan/optimized/04-2560.webp",
   "mapQuery": "Al Nakheel Premium Jannusan Budaiya Bahrain",
   "pendingData": true,
   "contact": {
@@ -28,15 +28,10 @@
     { "icon": "Wifi",          "label": "High-Speed WiFi" }
   ],
   "gallery": [
-    { "url": "/images/branches/jannusan/2.jpg", "tag": "equipment", "alt": "Squat racks and free weights with colour bumper plates" },
-    { "url": "/images/branches/jannusan/9.jpg", "tag": "equipment", "alt": "TechnoGym cardio and rowing area with boxing bags" },
-    { "url": "/images/branches/jannusan/3.jpg", "tag": "classes",   "alt": "Cardio line with Arsenal Strength rack and motivational floor graphics" },
-    { "url": "/images/branches/jannusan/1.jpg", "tag": "classes",   "alt": "Kinesis functional training wall" },
-    { "url": "/images/branches/jannusan/5.jpg", "tag": "equipment", "alt": "Cable machines and mirrored strength floor" },
-    { "url": "/images/branches/jannusan/6.jpg", "tag": "equipment", "alt": "Dumbbell racks along the mirrored wall" },
-    { "url": "/images/branches/jannusan/7.jpg", "tag": "equipment", "alt": "Curved treadmills and indoor cycles" },
-    { "url": "/images/branches/jannusan/8.jpg", "tag": "interior",  "alt": "Wide view of the selectorised machine floor" },
-    { "url": "/images/branches/jannusan/4.jpg", "tag": "interior",  "alt": "Cardio and machine floor under premium lighting" }
+    { "url": "/images/branches/jannusan/optimized/04-2560.webp", "tag": "equipment", "alt": "Cardio and machine floor under premium black-and-red lighting" },
+    { "url": "/images/branches/jannusan/optimized/02-2560.webp", "tag": "equipment", "alt": "Squat racks and strength machines" },
+    { "url": "/images/branches/jannusan/optimized/06-2560.webp", "tag": "equipment", "alt": "Dumbbell racks along the mirrored wall" },
+    { "url": "/images/branches/jannusan/optimized/01-2560.webp", "tag": "classes",   "alt": "Kinesis functional training wall" }
   ],
   "isNew": false,
   "comingSoon": false
