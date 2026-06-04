@@ -33,11 +33,12 @@ export default function HeroSection() {
       {/* Video background — place /public/videos/hero.mp4 to activate */}
       <motion.div className="absolute inset-0" style={{ y: bgY }}>
         <Image
-          src="/images/hero-bg.jpg"
+          src="/images/branches/bahrain-bay/optimized/10-extnight-2560.webp"
           alt=""
           fill
           priority
-          style={{ objectFit: "cover" }}
+          sizes="100vw"
+          className="object-cover object-[28%_center] md:object-center"
         />
         <video
           autoPlay
@@ -50,8 +51,8 @@ export default function HeroSection() {
         </video>
       </motion.div>
 
-      {/* Gradient overlay — heavier at bottom for text legibility */}
-      <div className="absolute inset-0 bg-gradient-to-b from-[#0D0D0D]/70 via-[#0D0D0D]/40 to-[#0D0D0D]/80" />
+      {/* Gradient overlay — lighter in the middle so the building reads, heavier top/bottom for text legibility */}
+      <div className="absolute inset-0 bg-gradient-to-b from-[#0D0D0D]/60 via-[#0D0D0D]/20 to-[#0D0D0D]/75" />
 
       {/* Content */}
       <motion.div
