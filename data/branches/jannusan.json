@@ -6,7 +6,7 @@
   "type": "mixed",
   "locationLabel": "Jannusan, Budaiya",
   "tagline": "Elite Fitness on the Highway.",
-  "heroImage": "/images/branches/jannusan/optimized/04-2560.webp",
+  "heroImage": "/images/branches/jannusan/optimized/02-2560.webp",
   "mapQuery": "Al Nakheel Premium Jannusan Budaiya Bahrain",
   "pendingData": true,
   "contact": {
@@ -28,7 +28,6 @@
     { "icon": "Wifi",          "label": "High-Speed WiFi" }
   ],
   "gallery": [
-    { "url": "/images/branches/jannusan/optimized/04-2560.webp", "tag": "equipment", "alt": "Cardio and machine floor under premium black-and-red lighting" },
     { "url": "/images/branches/jannusan/optimized/02-2560.webp", "tag": "equipment", "alt": "Squat racks and strength machines" },
     { "url": "/images/branches/jannusan/optimized/06-2560.webp", "tag": "equipment", "alt": "Dumbbell racks along the mirrored wall" },
     { "url": "/images/branches/jannusan/optimized/01-2560.webp", "tag": "classes",   "alt": "Kinesis functional training wall" }
