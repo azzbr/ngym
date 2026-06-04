@@ -6,7 +6,7 @@
   "type": "mixed",
   "locationLabel": "The Park, Bahrain Bay",
   "tagline": "Train With a View. Live at the Bay.",
-  "heroImage": "/images/branches/bahrain-bay/10.jpg",
+  "heroImage": "/images/branches/bahrain-bay/optimized/10-extnight-2560.webp",
   "mapQuery": "Al Nakheel Premium The Park Bahrain Bay Bahrain",
   "pendingData": false,
   "contact": {
@@ -47,16 +47,10 @@
     { "icon": "Wifi",          "label": "High-Speed WiFi" }
   ],
   "gallery": [
-    { "url": "/images/branches/bahrain-bay/10.jpg", "tag": "interior",  "alt": "Al Nakheel Premium Bahrain Bay at dusk" },
-    { "url": "/images/branches/bahrain-bay/2.jpg",  "tag": "interior",  "alt": "Main gym floor at night" },
-    { "url": "/images/branches/bahrain-bay/1.jpg",  "tag": "interior",  "alt": "Cardio and strength floor" },
-    { "url": "/images/branches/bahrain-bay/6.jpg",  "tag": "classes",   "alt": "Functional turf and motivation wall" },
-    { "url": "/images/branches/bahrain-bay/9.jpg",  "tag": "equipment", "alt": "Free weights by the bay windows" },
-    { "url": "/images/branches/bahrain-bay/4.jpg",  "tag": "equipment", "alt": "Pin-loaded machines" },
-    { "url": "/images/branches/bahrain-bay/8.jpg",  "tag": "equipment", "alt": "Machine area by the windows" },
-    { "url": "/images/branches/bahrain-bay/3.jpg",  "tag": "interior",  "alt": "Bahrain Bay entrance" },
-    { "url": "/images/branches/bahrain-bay/5.jpg",  "tag": "interior",  "alt": "Waterfront facility exterior" },
-    { "url": "/images/branches/bahrain-bay/7.jpg",  "tag": "interior",  "alt": "Floor-to-ceiling glass facade" }
+    { "url": "/images/branches/bahrain-bay/optimized/10-extnight-2560.webp", "tag": "interior",  "alt": "Curved glass facade at Bahrain Bay at night" },
+    { "url": "/images/branches/bahrain-bay/optimized/05-extday-2560.webp",   "tag": "interior",  "alt": "Bahrain Bay waterfront facility by day" },
+    { "url": "/images/branches/bahrain-bay/optimized/02-blue-2560.webp",     "tag": "equipment", "alt": "Strength floor with blue accent lighting" },
+    { "url": "/images/branches/bahrain-bay/optimized/08-interior-2560.webp", "tag": "equipment", "alt": "Gym floor with floor-to-ceiling bay windows" }
   ],
   "isNew": false,
   "comingSoon": false

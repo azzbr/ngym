@@ -6,7 +6,7 @@
   "type": "ladies",
   "locationLabel": "Budaiya Highway",
   "tagline": "Exclusively for Women. Unapologetically Premium.",
-  "heroImage": "/images/branches/budaiya-ladies/3.jpg",
+  "heroImage": "/images/branches/budaiya-ladies/optimized/01-pool-2560.webp",
   "mapQuery": "Al Nakheel Premium Ladies Budaiya Bahrain",
   "pendingData": true,
   "contact": {
@@ -30,12 +30,10 @@
     { "icon": "Wifi",          "label": "High-Speed WiFi" }
   ],
   "gallery": [
-    { "url": "/images/branches/budaiya-ladies/3.jpg", "tag": "interior",  "alt": "Villa-style facility with curved glass facade and outdoor pool" },
-    { "url": "/images/branches/budaiya-ladies/1.jpg", "tag": "interior",  "alt": "Outdoor pool framed by palm trees" },
-    { "url": "/images/branches/budaiya-ladies/6.jpg", "tag": "interior",  "alt": "Poolside view of the gym floor at night" },
-    { "url": "/images/branches/budaiya-ladies/5.jpg", "tag": "equipment", "alt": "Cardio area with Precor and StairMaster machines" },
-    { "url": "/images/branches/budaiya-ladies/4.jpg", "tag": "equipment", "alt": "Strength room with squat rack and benches" },
-    { "url": "/images/branches/budaiya-ladies/2.jpg", "tag": "interior",  "alt": "Garden and pool with a view of the dome" }
+    { "url": "/images/branches/budaiya-ladies/optimized/01-pool-2560.webp",    "tag": "interior",  "alt": "Outdoor pool framed by palm trees" },
+    { "url": "/images/branches/budaiya-ladies/optimized/02-pool-2560.webp",    "tag": "interior",  "alt": "Pool, jacuzzi and landscaped garden" },
+    { "url": "/images/branches/budaiya-ladies/optimized/05-gym-2560.webp",     "tag": "equipment", "alt": "Ladies cardio and gym floor" },
+    { "url": "/images/branches/budaiya-ladies/optimized/04-pilates-2560.webp", "tag": "classes",   "alt": "Reformer pilates studio" }
   ],
   "isNew": false,
   "comingSoon": false

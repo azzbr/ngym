@@ -39,3 +39,6 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Image masters / scratch (huge 4K PNG sources — keep out of git; optimized WebP live in public/)
+data/branches/test-image/

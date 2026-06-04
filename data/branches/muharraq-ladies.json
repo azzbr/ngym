@@ -6,7 +6,7 @@
   "type": "ladies",
   "locationLabel": "Muharraq",
   "tagline": "Premium Fitness for the Women of Muharraq.",
-  "heroImage": "/images/branches/muharraq-ladies/2.jpg",
+  "heroImage": "/images/branches/muharraq-ladies/optimized/02-exterior-2560.webp",
   "mapQuery": "Al Nakheel Premium Ladies Muharraq Road 1531 Bahrain",
   "pendingData": true,
   "contact": {
@@ -29,10 +29,10 @@
     { "icon": "Wifi",          "label": "High-Speed WiFi" }
   ],
   "gallery": [
-    { "url": "/images/branches/muharraq-ladies/2.jpg", "tag": "interior",  "alt": "Al Nakheel Premium Ladies Muharraq branded entrance" },
-    { "url": "/images/branches/muharraq-ladies/4.jpg", "tag": "interior",  "alt": "Double-height training floor seen from the mezzanine" },
-    { "url": "/images/branches/muharraq-ladies/1.jpg", "tag": "equipment", "alt": "Vast machine and cardio floor with motivational graphics" },
-    { "url": "/images/branches/muharraq-ladies/3.jpg", "tag": "classes",   "alt": "Strength floor with boxing bags beneath the mezzanine" }
+    { "url": "/images/branches/muharraq-ladies/optimized/02-exterior-2560.webp", "tag": "interior",  "alt": "Al Nakheel Premium Ladies Muharraq branded entrance" },
+    { "url": "/images/branches/muharraq-ladies/optimized/01-overview-2560.webp", "tag": "equipment", "alt": "Wide view of the ladies training floor" },
+    { "url": "/images/branches/muharraq-ladies/optimized/03-interior-2560.webp", "tag": "equipment", "alt": "Strength and machine floor" },
+    { "url": "/images/branches/muharraq-ladies/optimized/04-interior-2560.webp", "tag": "classes",   "alt": "Double-height functional training hall" }
   ],
   "isNew": false,
   "comingSoon": false

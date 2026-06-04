@@ -6,7 +6,7 @@
   "type": "ladies",
   "locationLabel": "Riffa",
   "tagline": "Exclusively for Women. Unapologetically Premium.",
-  "heroImage": "/images/branches/riffa-ladies/4.jpg",
+  "heroImage": "/images/branches/riffa-ladies/optimized/04-interior-2560.webp",
   "mapQuery": "Al Nakheel Premium Ladies Riffa Bahrain",
   "pendingData": true,
   "contact": {
@@ -29,11 +29,10 @@
     { "icon": "Wifi",          "label": "High-Speed WiFi" }
   ],
   "gallery": [
-    { "url": "/images/branches/riffa-ladies/4.jpg", "tag": "interior",  "alt": "Al Nakheel Premium Ladies Riffa branded exterior" },
-    { "url": "/images/branches/riffa-ladies/3.jpg", "tag": "interior",  "alt": "Spacious cardio floor with TechnoGym treadmills" },
-    { "url": "/images/branches/riffa-ladies/2.jpg", "tag": "equipment", "alt": "Selectorised resistance machine line" },
-    { "url": "/images/branches/riffa-ladies/1.jpg", "tag": "equipment", "alt": "Cable station, benches and dumbbell area" },
-    { "url": "/images/branches/riffa-ladies/5.jpg", "tag": "equipment", "alt": "Functional cable machine with mirrored walls" }
+    { "url": "/images/branches/riffa-ladies/optimized/04-interior-2560.webp", "tag": "interior",  "alt": "Ladies reception and training floor" },
+    { "url": "/images/branches/riffa-ladies/optimized/03-interior-2560.webp", "tag": "equipment", "alt": "Cardio floor with TechnoGym treadmills" },
+    { "url": "/images/branches/riffa-ladies/optimized/01-interior-2560.webp", "tag": "equipment", "alt": "Free weights, benches and cable area" },
+    { "url": "/images/branches/riffa-ladies/optimized/05-exterior-2560.webp", "tag": "interior",  "alt": "Riffa ladies training hall with mirrored walls" }
   ],
   "isNew": false,
   "comingSoon": false

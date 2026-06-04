@@ -6,7 +6,7 @@
   "type": "mixed",
   "locationLabel": "Al Liwan, Hamala",
   "tagline": "Where Bahrain's Elite Train",
-  "heroImage": "/images/branches/al-liwan/2.jpg",
+  "heroImage": "/images/branches/al-liwan/optimized/14-extnight-2560.webp",
   "mapQuery": "Al Nakheel Premium Al Liwan Hamala Bahrain",
   "pendingData": false,
   "contact": {
@@ -44,22 +44,10 @@
     { "icon": "Wifi",          "label": "High-Speed WiFi" }
   ],
   "gallery": [
-    { "url": "/images/branches/al-liwan/1.jpg",  "tag": "interior",  "alt": "Al Liwan exterior and entrance" },
-    { "url": "/images/branches/al-liwan/2.jpg",  "tag": "interior",  "alt": "Main gym floor with strength machines" },
-    { "url": "/images/branches/al-liwan/3.jpg",  "tag": "interior",  "alt": "Strength training floor" },
-    { "url": "/images/branches/al-liwan/4.jpg",  "tag": "equipment", "alt": "Pin-loaded machine area" },
-    { "url": "/images/branches/al-liwan/5.jpg",  "tag": "equipment", "alt": "Free weights and benches by the windows" },
-    { "url": "/images/branches/al-liwan/6.jpg",  "tag": "interior",  "alt": "Functional training zone" },
-    { "url": "/images/branches/al-liwan/7.jpg",  "tag": "equipment", "alt": "Dumbbell racks" },
-    { "url": "/images/branches/al-liwan/8.jpg",  "tag": "classes",   "alt": "Boxing and functional area" },
-    { "url": "/images/branches/al-liwan/9.jpg",  "tag": "equipment", "alt": "Free weights and Olympic platforms" },
-    { "url": "/images/branches/al-liwan/10.jpg", "tag": "equipment", "alt": "Selectorised machine line" },
-    { "url": "/images/branches/al-liwan/11.jpg", "tag": "equipment", "alt": "Cable machine area" },
-    { "url": "/images/branches/al-liwan/12.jpg", "tag": "equipment", "alt": "Cardio and machines" },
-    { "url": "/images/branches/al-liwan/13.jpg", "tag": "equipment", "alt": "Free weights floor" },
-    { "url": "/images/branches/al-liwan/14.jpg", "tag": "interior",  "alt": "Interior with Al Nakheel branding" },
-    { "url": "/images/branches/al-liwan/15.jpg", "tag": "classes",   "alt": "Turf functional training lane" },
-    { "url": "/images/branches/al-liwan/16.jpg", "tag": "classes",   "alt": "Sprint turf lane" }
+    { "url": "/images/branches/al-liwan/optimized/14-extnight-2560.webp",  "tag": "interior",  "alt": "Al Liwan entrance illuminated at night" },
+    { "url": "/images/branches/al-liwan/optimized/01-extday-2560.webp",    "tag": "interior",  "alt": "Al Liwan premium fitness building by day" },
+    { "url": "/images/branches/al-liwan/optimized/02-cardio-2560.webp",    "tag": "equipment", "alt": "Double-height main gym floor and cardio hall" },
+    { "url": "/images/branches/al-liwan/optimized/09-functional-2560.webp", "tag": "classes",  "alt": "Functional training floor with turf sprint lane" }
   ],
   "isNew": false,
   "comingSoon": false
