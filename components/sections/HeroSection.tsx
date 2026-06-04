@@ -1,7 +1,6 @@
 "use client";
 
 import { motion, type Variants } from "framer-motion";
-import Image from "next/image";
 import CTAButton from "@/components/ui/CTAButton";
 import { useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
@@ -20,8 +19,6 @@ export default function HeroSection() {
   const ref = useRef<HTMLElement>(null);
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start start", "end start"] });
 
-  // Parallax: bg moves at 40% of scroll speed
-  const bgY = useTransform(scrollYProgress, [0, 1], ["0%", "40%"]);
   // Text moves slightly slower than scroll for depth
   const contentY = useTransform(scrollYProgress, [0, 1], ["0%", "15%"]);
 
@@ -30,29 +27,8 @@ export default function HeroSection() {
       ref={ref}
       className="relative w-full min-h-screen flex items-center justify-center overflow-hidden bg-[#0D0D0D]"
     >
-      {/* Video background — place /public/videos/hero.mp4 to activate */}
-      <motion.div className="absolute inset-0" style={{ y: bgY }}>
-        <Image
-          src="/images/branches/bahrain-bay/optimized/10-extnight-2560.webp"
-          alt=""
-          fill
-          priority
-          sizes="100vw"
-          className="object-cover object-[28%_center] md:object-center"
-        />
-        <video
-          autoPlay
-          muted
-          loop
-          playsInline
-          className="absolute inset-0 w-full h-full object-cover"
-        >
-          <source src="/videos/hero.mp4" type="video/mp4" />
-        </video>
-      </motion.div>
-
-      {/* Gradient overlay — lighter in the middle so the building reads, heavier top/bottom for text legibility */}
-      <div className="absolute inset-0 bg-gradient-to-b from-[#0D0D0D]/60 via-[#0D0D0D]/20 to-[#0D0D0D]/75" />
+      {/* Subtle gradient for depth + text legibility on the dark hero */}
+      <div className="absolute inset-0 bg-gradient-to-b from-[#0D0D0D]/40 via-transparent to-[#0D0D0D]/60" />
 
       {/* Content */}
       <motion.div
