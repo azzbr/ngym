@@ -34,12 +34,22 @@ export default function BranchGalleryShowcase({ branches }: Props) {
         className="w-full h-full"
       >
         {allImages.map((img, i) => (
-          <SwiperSlide key={i} className="relative">
+          <SwiperSlide key={i} className="relative overflow-hidden">
+            {/* Blurred backdrop — fills the wide band so the photo is never cropped */}
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src={img.url}
+              alt=""
+              aria-hidden="true"
+              className="absolute inset-0 w-full h-full object-cover scale-110 blur-2xl"
+            />
+            <div className="absolute inset-0 bg-[#0D0D0D]/30" />
+            {/* Full photo, centered, never cropped */}
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src={img.url}
               alt={img.alt}
-              className="w-full h-full object-cover"
+              className="relative w-full h-full object-contain"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-[#0D0D0D]/70 to-transparent" />
             <div className="absolute bottom-10 left-8">
