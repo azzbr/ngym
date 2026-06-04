@@ -61,12 +61,12 @@ export default function AboutPage() {
             </div>
           </div>
           <div className="aspect-square bg-[#F5F4F2] flex items-center justify-center overflow-hidden">
-            <span
-              className="font-bebas text-[12rem] text-[#E5E5E5] leading-none"
-              style={{ fontFamily: "var(--font-bebas, cursive)" }}
-            >
-              AN
-            </span>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/images/showcase/higgsfield-2-goldenhour-notext-2560.webp"
+              alt="Al Nakheel Premium Al Liwan branch entrance at golden hour"
+              className="w-full h-full object-cover"
+            />
           </div>
         </div>
       </section>
