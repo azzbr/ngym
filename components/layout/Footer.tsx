@@ -5,6 +5,7 @@ import { getAllBranches } from "@/lib/branches";
 const navLinks = [
   { label: "About Us", href: "/about" },
   { label: "Memberships", href: "/memberships" },
+  { label: "Fitness Tools", href: "/tools" },
   { label: "Gallery", href: "/gallery" },
   { label: "Contact", href: "/contact" },
 ];

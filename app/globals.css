@@ -1,5 +1,10 @@
 @import "tailwindcss";
 
+@theme {
+  /* 1280px page container — makes the site-wide `max-w-site` utility generate CSS */
+  --container-site: 80rem;
+}
+
 :root {
   --font-montserrat: "Montserrat", sans-serif;
   --font-inter: "Inter", sans-serif;
@@ -26,6 +31,13 @@ body {
 @media (hover: hover) {
   *, *::before, *::after {
     cursor: none !important;
+  }
+  /* Form controls keep their native cursors (form-heavy pages like /tools) */
+  input, textarea {
+    cursor: text !important;
+  }
+  select, button, summary, label, [role="radio"] {
+    cursor: pointer !important;
   }
 }
 
