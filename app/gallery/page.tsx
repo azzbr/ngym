@@ -11,7 +11,6 @@ const SHOWCASE: GalleryImage[] = [
   { url: "/images/showcase/bb-higgsfield-2-goldenhour-notext-2560.webp", tag: "showcase", alt: "Bahrain Bay branch at golden hour" },
   { url: "/images/showcase/bb-higgsfield-3-bluehour-notext-2560.webp",   tag: "showcase", alt: "Bahrain Bay branch at blue hour" },
   { url: "/images/showcase/bb-higgsfield-4-mono-2560.webp",              tag: "showcase", alt: "Bahrain Bay branch in dramatic black and white" },
-  { url: "/images/showcase/bb-higgsfield-1-poster-2560.webp",            tag: "showcase", alt: "Al Nakheel Premium Bahrain Bay brand poster" },
   { url: "/images/showcase/bb-magnific-3-camera-2560.webp",              tag: "showcase", alt: "Bahrain Bay branch, alternate angle" },
   { url: "/images/showcase/magnific-1-upscale4x-2560.webp",              tag: "showcase", alt: "Al Liwan entrance illuminated at night" },
   { url: "/images/showcase/magnific-2-relight-2560.webp",                tag: "showcase", alt: "Al Liwan exterior, dramatic relight" },
