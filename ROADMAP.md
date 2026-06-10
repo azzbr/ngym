@@ -366,4 +366,56 @@ Data decides: **saved calculator plans** (`saved_plans` + RLS, "Save plan" butto
 
 ---
 
+## 15. Horizon 2 — The Future-of-Gym Layer (2026–2030)
+
+> Added 2026-06-11 from a 4-track research sweep (industry trends, shipping AI, open-API hardware, competitor gap-check vs GymNation / Fitness First ME / Equinox+ / Basic-Fit / PureGym / Crunch). Horizon 2 items layer ON TOP of Phases 0–7 — none replace them. Already shipped ahead of schedule and referenced below: the 16-calculator Tools hub, the local-first My Progress system (streaks/badges/weight log/PRs), and Kiosk Mode for machine screens.
+
+### 15.1 Competitive context
+
+**GymNation entered Bahrain (Dec 2025)** running the regional "tech gym" playbook: an AI WhatsApp concierge ("Albus" — 87% conversation conversion, 75% automated tour booking), Boditrax body-scan kiosks at every club, a Middle-East HYROX partnership with monthly app leaderboards, and meal-plan partnerships (Kcal, Yalla Chef). They are the budget brand; Al Nakheel is the premium one — but the "smartest gym in Bahrain" narrative is up for grabs. Most of the counter-playbook is software this stack is already 70% positioned for.
+
+### 15.2 H2-A — Software wins (no hardware; ride existing/planned infra)
+
+| # | Feature | What it is | Rides on | Proven by |
+|---|---|---|---|---|
+| A1 | **AI workout-plan generator** | LLM endpoint consuming what we already store (calculator inputs, weight log, PRs, streak) → a branch-aware weekly plan, shareable to WhatsApp. Does in software what EGYM Genius needs six-figure equipment for. ~$50–200/mo API spend. | Tools hub + My Progress (shipped); portal (P3) for saved plans | EGYM Genius @ EoS, Planet Fitness pilot |
+| A2 | **WhatsApp AI concierge** | RAG agent on the main WhatsApp number answering hours/pricing/ladies-branch questions + booking tours into the leads pipeline. Branch JSONs are the ready-made knowledge base. | WABA number (P2/D3), leads table (P2) | GymNation Albus; Equinox Agentforce |
+| A3 | **Live occupancy / popular times** | "How busy is it right now" + predicted-crowd chart per branch. Entry events give live counts. **Highest value for ladies branches** (privacy windows). | QR check-in (P4) + Supabase (P2) | PureGym, Basic-Fit |
+| A4 | **Challenges + prize leaderboards** | Time-boxed branch-vs-branch challenges with real prizes + monthly leaderboards, announced on Instagram. The direct GymNation/HYROX counter. | My Progress (shipped) synced via P3 accounts | GymNation, Dubai Fitness Challenge |
+| A5 | **Guest pass / buddy bolt-on** | Recurring paid perk (e.g. 4 guest visits/mo): single-use QR the member shares over WhatsApp. Distinct from the P6 referral program. | QR check-in (P4), Tap (P5) | PureGym £3/mo bolt-on; Crunch tiers |
+| A6 | **Multi-week training programs** | 6–12-week structured plans authored by our trainers, with completion ticks; extends calculators + progress into progression. | Tools hub (shipped), trainer profiles (P5) | PureGym 8-week plans, Equinox+ |
+| A7 | **Perks marketplace + meal-plan partner** | Member-only partner discounts hub (10–20 premium Bahrain brands) + one meal-prep partnership. Natural funnel: macro calculator result → "get this as a meal plan". Near-zero code; all BD work. | Portal gate (P3) | Crunch Perks (1,600 partners); GymNation × Kcal |
+| A8 | **Churn scoring** | Visit-frequency-decay score per member → at-risk queue in /admin → planned WhatsApp outreach. No ML needed at 8-branch scale; this is the "brain" on the P4 check-in pipes. | Check-ins (P4), WABA (P3) | Keepme (95% claimed accuracy), ABC Fitness |
+
+### 15.3 H2-B — Hardware with open APIs (one purchase, three strategies)
+
+- **InBody scanner per flagship (~$8–15k; start Al Liwan + Bahrain Bay) — the standout pick.** LookinBody Web has a documented API keyed by **phone number** — literally our WhatsApp-first member identity — so scan history flows into the portal's weight log (proven by TrainerMetrics/EGYM integrations). One purchase powers: free member scan days (premium perk), the paid **Longevity Assessment** product (15.4), and the GLP-1 positioning (15.4).
+- **Myzone group heart-rate** (MZ-Switch belts + studio screens): MEPs gamification made for an Instagram-driven community; **free API tier (10k calls/mo)** pipes effort points into the existing badges/streaks. Quote-based club license; fits group classes.
+- **Budget alternative:** Fit3D SNAP tablet scanning (~$200 + ~$100/mo per branch) if InBody capex stalls.
+- **If smart strength ever tempts:** pilot EGYM (lease ≈ €95–150/machine/mo, open developer API) at one flagship — never the closed Technogym ecosystem buy-in.
+
+### 15.4 H2-C — Positioning bets (2026–2030)
+
+1. **The GLP-1/Ozempic era — the big one.** 25–40% of drug-induced weight loss is muscle; gyms worldwide are repositioning as the muscle-preservation layer of medical weight loss. Ship a "Strength on GLP-1s" program page (nobody owns this query in Bahrain) and upgrade progress tracking to **body-composition-first** (muscle kept, not just kg lost — InBody fields on the weight log).
+2. **Recovery as a paid tier.** Sauna/cold plunge/compression at flagships sold as a +BD 15–25/mo add-on through the P5 Tap stack; recovery rooms model as bookable resources in the P5 booking engine. Red-light/recovery is an especially strong ladies-branch fit. (Crunch 3.0, Planet Fitness 2026, Life Time.)
+3. **Longevity Assessment product.** InBody scan + VO₂ estimate (the calculator exists) + movement screen, bookable per branch, results timeline in the portal. The Equinox-Optimize/Life-Time-MIORA trend at Bahrain prices. Any bloodwork tier needs a licensed local clinic partner.
+4. **Small-group training zones.** Coached, capped, premium-priced SGT at flagships (~40% higher LTV industry-wide); program pages + waitlist now, capacity booking when P5 ships.
+5. **Corporate wellness, accelerated.** No Wellhub-style aggregator dominates Bahrain; 8 branches = island-wide coverage no single gym can pitch. (Already P2 — raise its priority.)
+
+### 15.5 Explicit skips (decided, with reasons)
+
+Camera-based form coaching (nothing production-grade on commercial floors; privacy non-starter in ladies branches) · licensed on-demand video libraries (too heavy at 8 branches — film 20–30 trainer demo clips via the Instagram pipeline instead) · wearable sync (requires a native app; revisit only if one ships — Terra/Open Wearables are the integration route then) · Technogym ecosystem (capex lock-in) · padel/court add-ons (facilities decision, not a website gap) · lost & found / parking features (no major operator productizes these — WhatsApp handles it).
+
+**Design constraint for everything above:** only ~10% of consumers prefer AI-led coaching over humans (Les Mills 2026). AI stays invisible — concierge, churn scoring, plan drafting reviewed by trainers — while the brand keeps showing human coaches' faces.
+
+### 15.6 Suggested sequencing
+
+| When | Items |
+|---|---|
+| Alongside P2–P3 | A2 concierge (same WABA setup), A7 perks/meal partner (BD work in parallel), GLP-1 program page (content only) |
+| Alongside P4–P5 | A3 occupancy, A5 guest passes, A8 churn scoring (all ride check-in data); first InBody + Longevity Assessment page; recovery add-on tier with booking |
+| After P5 | A1 plan generator (richest once portal data syncs — or earlier as a free teaser), A4 prize challenges, A6 programs, Myzone pilot, SGT zones |
+
+---
+
 *This roadmap supersedes the "Deferred / TODO" and "Development Phases" sections of CLAUDE.md where they conflict (notably: Sanity CMS is dropped per D1; the Resend contact form becomes the Phase 2 leads pipeline per D2). Keep both documents in sync as phases land.*
