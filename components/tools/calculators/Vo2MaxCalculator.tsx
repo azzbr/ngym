@@ -11,6 +11,7 @@ import type { MaxHrFormula } from "@/lib/fitness/types";
 import { fmt } from "@/lib/fitness/units";
 import NumberField from "../atoms/NumberField";
 import ResultCard from "../atoms/ResultCard";
+import SaveResultButton from "../atoms/SaveResultButton";
 import ScaleBar from "../atoms/ScaleBar";
 import SegmentedControl from "../atoms/SegmentedControl";
 
@@ -247,6 +248,7 @@ export default function Vo2MaxCalculator() {
           labelColor={band.color}
           interpretation={INTERPRETATIONS[band.label]}
           note={`Field estimate — not a lab measurement. Rated against ${sex} norms for age ${age}.`}
+          action={<SaveResultButton kind="vo2max" value={vo2} />}
         >
           <ScaleBar bands={bands} value={vo2} min={VO2_SCALE.min} max={VO2_SCALE.max} />
         </ResultCard>

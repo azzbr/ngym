@@ -16,6 +16,8 @@ interface Props {
   note?: string;
   /** Usually a <ScaleBar/>. */
   children?: ReactNode;
+  /** Optional action row (e.g. SaveResultButton), rendered last. */
+  action?: ReactNode;
 }
 
 /** Big number → category label → interpretation → scale bar. */
@@ -27,6 +29,7 @@ export default function ResultCard({
   interpretation,
   note,
   children,
+  action,
 }: Props) {
   return (
     <div className="bg-white border border-[#E5E5E5] border-l-4 border-l-[#CC1A1A] p-6 md:p-8" role="status">
@@ -52,6 +55,7 @@ export default function ResultCard({
       {interpretation && <p className="mt-4 text-sm text-[#0D0D0D] leading-relaxed">{interpretation}</p>}
       {children && <div className="mt-6">{children}</div>}
       {note && <p className="mt-4 text-xs text-[#6B6B6B]">{note}</p>}
+      {action && <div className="mt-5 flex justify-end">{action}</div>}
     </div>
   );
 }

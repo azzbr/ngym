@@ -7,6 +7,7 @@ import { fmt, kgToLb, roundToStep } from "@/lib/fitness/units";
 import NextStepButton from "../atoms/NextStepButton";
 import NumberField from "../atoms/NumberField";
 import ResultCard from "../atoms/ResultCard";
+import SaveResultButton from "../atoms/SaveResultButton";
 
 export default function OneRepMaxCalculator() {
   const { units } = useUnits();
@@ -66,6 +67,7 @@ export default function OneRepMaxCalculator() {
             label="Estimated 1RM"
             interpretation="The most you could likely lift for a single rep, averaged across two proven formulas."
             note="Estimates are most reliable in the 2–8 rep range — never test a true max without a spotter."
+            action={<SaveResultButton kind="oneRepMax" value={averageKg} />}
           >
             <p className="text-sm text-[#0D0D0D]">
               <span className="font-semibold">Epley:</span> {fmt(toDisplay(e), 1)} {unitLabel}{" "}

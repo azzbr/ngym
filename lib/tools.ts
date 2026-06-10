@@ -7,6 +7,9 @@
 
 export type ToolCategory = "body-metrics" | "nutrition" | "strength" | "cardio";
 
+// NOTE: never add "progress" as a ToolSlug — /tools/progress is a static
+// route (My Progress dashboard) that must not collide with /tools/[slug].
+
 export type ToolSlug =
   | "bmi"
   | "body-fat"

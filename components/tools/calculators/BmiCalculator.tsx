@@ -9,6 +9,7 @@ import { fmt } from "@/lib/fitness/units";
 import HeightField from "../atoms/HeightField";
 import NumberField from "../atoms/NumberField";
 import ResultCard from "../atoms/ResultCard";
+import SaveResultButton from "../atoms/SaveResultButton";
 import ScaleBar from "../atoms/ScaleBar";
 
 const INTERPRETATIONS: Record<string, string> = {
@@ -56,6 +57,7 @@ export default function BmiCalculator() {
             labelColor={band.color}
             interpretation={INTERPRETATIONS[band.label]}
             note="BMI can misclassify muscular people — it measures weight, not body composition."
+            action={<SaveResultButton kind="bmi" value={value} />}
           >
             <ScaleBar bands={BMI_BANDS} value={value} min={BMI_SCALE.min} max={BMI_SCALE.max} />
           </ResultCard>

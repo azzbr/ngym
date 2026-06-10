@@ -11,6 +11,7 @@ import HandoffChip from "../atoms/HandoffChip";
 import HeightField from "../atoms/HeightField";
 import NumberField from "../atoms/NumberField";
 import ResultCard from "../atoms/ResultCard";
+import SaveResultButton from "../atoms/SaveResultButton";
 import ScaleBar from "../atoms/ScaleBar";
 import { useHandoffParam } from "../useHandoffParam";
 
@@ -110,6 +111,7 @@ export default function FfmiCalculator() {
           labelColor={band.color}
           interpretation={INTERPRETATIONS[band.label]}
           note="Normalized to a 1.80 m reference height so taller and shorter lifters compare fairly."
+          action={<SaveResultButton kind="ffmi" value={result.normalized} />}
         >
           <p className="text-sm text-[#0D0D0D] mb-4">
             Fat-free mass:{" "}

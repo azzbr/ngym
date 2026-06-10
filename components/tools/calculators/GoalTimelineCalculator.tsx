@@ -4,10 +4,12 @@ import { useEffect, useRef, useState } from "react";
 import { useProfile, useUnits } from "@/components/providers/ToolsProvider";
 import { goalTimeline, mifflinStJeor, tdee } from "@/lib/fitness/formulas";
 import { validateField } from "@/lib/fitness/profile";
+import { toISODate } from "@/lib/fitness/progress";
 import { fmt, kgToLb, roundTo } from "@/lib/fitness/units";
 import HandoffChip from "../atoms/HandoffChip";
 import NumberField from "../atoms/NumberField";
 import ResultCard from "../atoms/ResultCard";
+import SaveResultButton from "../atoms/SaveResultButton";
 import TimelineChart from "../atoms/TimelineChart";
 import { useHandoffParam } from "../useHandoffParam";
 
@@ -188,6 +190,19 @@ export default function GoalTimelineCalculator() {
             note={`Daily ${dailyDelta != null && dailyDelta < 0 ? "deficit" : "surplus"} of ${Math.abs(
               Math.round(dailyDelta ?? 0),
             )} kcal · straight-line estimate using 7,700 kcal ≈ 1 kg.`}
+            action={
+              <SaveResultButton
+                kind="goalPlan"
+                value={Math.ceil(result.weeks)}
+                plan={{
+                  startDate: toISODate(new Date()),
+                  startKg: weightKg as number,
+                  targetKg: targetKg as number,
+                  weeklyKg: result.weeklyKg,
+                  at: Date.now(),
+                }}
+              />
+            }
           >
             <TimelineChart points={result.points} targetKg={targetKg as number} />
           </ResultCard>

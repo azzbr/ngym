@@ -1,7 +1,9 @@
 "use client";
 
 import Link from "next/link";
+import { useEffect } from "react";
 import { ArrowLeft } from "lucide-react";
+import { useProgress } from "@/components/providers/ToolsProvider";
 import { getToolBySlug, type ToolSlug } from "@/lib/tools";
 import type { ReactNode } from "react";
 import ProfileBar from "./ProfileBar";
@@ -16,6 +18,16 @@ import TrainerCTA from "./atoms/TrainerCTA";
  */
 export default function ToolShell({ slug, children }: { slug: ToolSlug; children: ReactNode }) {
   const tool = getToolBySlug(slug)!;
+  const { updateProgress, hydrated } = useProgress();
+
+  // Mark the tool as opened (for the all-16 badge). Gated on hydration so the
+  // mark isn't clobbered when stored state arrives (parent effects run last).
+  useEffect(() => {
+    if (!hydrated) return;
+    updateProgress((p) =>
+      p.usedTools.includes(slug) ? p : { ...p, usedTools: [...p.usedTools, slug] },
+    );
+  }, [hydrated, slug, updateProgress]);
   const related = tool.related
     .map((s) => getToolBySlug(s))
     .filter((t): t is NonNullable<typeof t> => Boolean(t));

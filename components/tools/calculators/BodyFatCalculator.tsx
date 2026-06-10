@@ -10,6 +10,7 @@ import HeightField from "../atoms/HeightField";
 import NextStepButton from "../atoms/NextStepButton";
 import NumberField from "../atoms/NumberField";
 import ResultCard from "../atoms/ResultCard";
+import SaveResultButton from "../atoms/SaveResultButton";
 import ScaleBar from "../atoms/ScaleBar";
 
 const INTERPRETATIONS: Record<string, string> = {
@@ -108,6 +109,7 @@ export default function BodyFatCalculator() {
             labelColor={band.color}
             interpretation={INTERPRETATIONS[band.label]}
             note={`Uses the ${female ? "female" : "male"} US Navy equation — a tape-measure estimate, typically within a few percent of lab methods.`}
+            action={<SaveResultButton kind="bodyFat" value={value} />}
           >
             <ScaleBar
               bands={BODY_FAT_BANDS[sex]}

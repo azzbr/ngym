@@ -10,14 +10,17 @@ import {
   useState,
   type ReactNode,
 } from "react";
+import { evaluateBadges, type BadgeEventCtx, type BadgeId } from "@/lib/fitness/badges";
 import {
-  DEFAULT_STORAGE,
+  clampProgress,
+  defaultStorage,
   HANDOFF_TTL_MS,
   parseStored,
   STORAGE_KEY,
   type Profile,
+  type ProgressState,
   type ToolPrefs,
-  type ToolsStorageV1,
+  type ToolsStorage,
 } from "@/lib/fitness/profile";
 import type {
   HandoffEntry,
@@ -41,6 +44,17 @@ type ToolsContextValue = {
   /** Returns a fresh handoff entry or null (stale/missing). */
   getHandoff: (key: HandoffKey) => HandoffEntry | null;
   clearHandoff: (key: HandoffKey) => void;
+  /** Progress (streaks, weight log, PRs, badges). */
+  progress: ProgressState;
+  /**
+   * The single write path for progress: applies the mutation, prunes caps,
+   * runs the badge engine (idempotent) and queues newly earned badges for
+   * the toast. Callers should gate auto-writes on `hydrated`.
+   */
+  updateProgress: (mutate: (p: ProgressState) => ProgressState, eventCtx?: BadgeEventCtx) => void;
+  /** FIFO of badges awaiting celebration. */
+  pendingBadges: BadgeId[];
+  dismissBadge: () => void;
 };
 
 const ToolsContext = createContext<ToolsContextValue | null>(null);
@@ -50,8 +64,12 @@ function defaultMaxHrFormula(sex: Sex | null): MaxHrFormula {
 }
 
 export default function ToolsProvider({ children }: { children: ReactNode }) {
-  const [state, setState] = useState<ToolsStorageV1>(DEFAULT_STORAGE);
+  const [state, setState] = useState<ToolsStorage>(() => ({
+    ...defaultStorage(),
+    deviceId: "", // placeholder until hydration — never persisted (writes are hydration-gated)
+  }));
   const [hydrated, setHydrated] = useState(false);
+  const [pendingBadges, setPendingBadges] = useState<BadgeId[]>([]);
   const saveTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   // Hydrate from localStorage after mount (never during render → no SSR mismatch).
@@ -59,7 +77,7 @@ export default function ToolsProvider({ children }: { children: ReactNode }) {
     try {
       setState(parseStored(window.localStorage.getItem(STORAGE_KEY)));
     } catch {
-      // Private mode / blocked storage: stay on in-memory defaults.
+      setState(defaultStorage()); // private mode: in-memory defaults with a real deviceId
     }
     setHydrated(true);
 
@@ -138,6 +156,38 @@ export default function ToolsProvider({ children }: { children: ReactNode }) {
     });
   }, []);
 
+  const updateProgress = useCallback(
+    (mutate: (p: ProgressState) => ProgressState, eventCtx?: BadgeEventCtx) => {
+      setState((s) => {
+        const mutated = mutate(s.progress);
+        if (mutated === s.progress && !eventCtx) return s;
+        const clamped = clampProgress(mutated);
+        const newlyEarned = evaluateBadges(clamped, s.profile, eventCtx);
+        if (newlyEarned.length > 0) {
+          const earnedAt = Date.now();
+          // Queue outside the reducer is unsafe under StrictMode double-invoke;
+          // schedule after commit instead.
+          queueMicrotask(() =>
+            setPendingBadges((q) => [...q, ...newlyEarned.filter((id) => !q.includes(id))]),
+          );
+          return {
+            ...s,
+            progress: {
+              ...clamped,
+              badges: [...clamped.badges, ...newlyEarned.map((id) => ({ id, earnedAt }))],
+            },
+          };
+        }
+        return { ...s, progress: clamped };
+      });
+    },
+    [],
+  );
+
+  const dismissBadge = useCallback(() => {
+    setPendingBadges((q) => q.slice(1));
+  }, []);
+
   const value = useMemo<ToolsContextValue>(
     () => ({
       hydrated,
@@ -151,8 +201,24 @@ export default function ToolsProvider({ children }: { children: ReactNode }) {
       setHandoff,
       getHandoff,
       clearHandoff,
+      progress: state.progress,
+      updateProgress,
+      pendingBadges,
+      dismissBadge,
     }),
-    [hydrated, state, setProfile, setUnits, setPrefs, setHandoff, getHandoff, clearHandoff],
+    [
+      hydrated,
+      state,
+      setProfile,
+      setUnits,
+      setPrefs,
+      setHandoff,
+      getHandoff,
+      clearHandoff,
+      updateProgress,
+      pendingBadges,
+      dismissBadge,
+    ],
   );
 
   return <ToolsContext.Provider value={value}>{children}</ToolsContext.Provider>;
@@ -172,4 +238,9 @@ export function useProfile() {
 export function useUnits() {
   const { units, setUnits } = useTools();
   return { units, setUnits };
+}
+
+export function useProgress() {
+  const { progress, updateProgress, pendingBadges, dismissBadge, hydrated } = useTools();
+  return { progress, updateProgress, pendingBadges, dismissBadge, hydrated };
 }
