@@ -6,6 +6,7 @@ const navLinks = [
   { label: "About Us", href: "/about" },
   { label: "Memberships", href: "/memberships" },
   { label: "Fitness Tools", href: "/tools" },
+  { label: "Kiosk Mode", href: "/kiosk" },
   { label: "Gallery", href: "/gallery" },
   { label: "Contact", href: "/contact" },
 ];

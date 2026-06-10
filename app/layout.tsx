@@ -1,11 +1,7 @@
 import type { Metadata } from "next";
 import { Montserrat, Inter, Bebas_Neue } from "next/font/google";
 import "./globals.css";
-import Navbar from "@/components/layout/Navbar";
-import Footer from "@/components/layout/Footer";
-import WhatsAppButton from "@/components/ui/WhatsAppButton";
-import LenisProvider from "@/components/providers/LenisProvider";
-import CustomCursor from "@/components/ui/CustomCursor";
+import SiteChrome from "@/components/layout/SiteChrome";
 
 const montserrat = Montserrat({
   subsets: ["latin"],
@@ -57,13 +53,7 @@ export default function RootLayout({
       className={`${montserrat.variable} ${inter.variable} ${bebasNeue.variable}`}
     >
       <body>
-        <LenisProvider>
-          <CustomCursor />
-          <Navbar />
-          <main>{children}</main>
-          <Footer />
-          <WhatsAppButton />
-        </LenisProvider>
+        <SiteChrome>{children}</SiteChrome>
       </body>
     </html>
   );

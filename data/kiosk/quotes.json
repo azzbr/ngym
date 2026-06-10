@@ -1,0 +1,10 @@
+[
+  { "lines": ["WHAT DOESN'T KILL", "YOU", "MAKES YOU", "STRONGER"], "redLines": [1, 3], "audience": "all" },
+  { "lines": ["ONE MORE", "REP"], "redLines": [1], "audience": "all" },
+  { "lines": ["SHOW UP.", "THE REST", "FOLLOWS."], "redLines": [0], "audience": "all" },
+  { "lines": ["STRONG", "IS EARNED", "DAILY"], "redLines": [0], "audience": "all" },
+  { "lines": ["YOUR ONLY RIVAL", "IS YESTERDAY'S", "YOU"], "redLines": [2], "audience": "all" },
+  { "lines": ["SHE BELIEVED", "SHE COULD.", "SO SHE DID."], "redLines": [2], "audience": "ladies" },
+  { "lines": ["DON'T BREAK", "THE CHAIN"], "redLines": [1], "audience": "all" },
+  { "lines": ["SWEAT", "IS JUST", "PROGRESS", "LEAVING"], "redLines": [0, 2], "audience": "all" }
+]
